@@ -1,12 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <app-header />
     <router-view />
   </div>
 </template>
 
+<script>
+import Header from "./components/Header";
+
+export default {
+  components: {
+    "app-header": Header,
+  },
+};
+</script>
+
 <style lang="scss">
+body {
+  margin: 0;
+}
+
+.centering-container {
+  max-width: 1100px;
+  margin: auto;
+}
 </style>
