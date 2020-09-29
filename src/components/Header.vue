@@ -1,7 +1,7 @@
 <template>
   <header id="header">
     <div class="centering-container">
-      <img src="../assets/images/logo.png" />
+      <router-link to="/"><img src="../assets/images/logo.png" /></router-link>
       <nav>
         <div
           class="link"
