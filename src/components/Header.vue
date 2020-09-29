@@ -42,7 +42,7 @@
     justify-content: space-between;
     padding: 0.5rem;
     img {
-      width: 20rem;
+      width: 15rem;
     }
 
     nav {

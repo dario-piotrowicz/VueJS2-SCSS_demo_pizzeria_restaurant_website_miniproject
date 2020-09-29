@@ -6,7 +6,12 @@
 </template>
 
 <script>
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPizzaSlice } from "@fortawesome/free-solid-svg-icons";
+
 import Header from "./components/Header";
+
+library.add(faPizzaSlice);
 
 export default {
   components: {

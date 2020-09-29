@@ -35,7 +35,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0.5;
+    opacity: 0.8;
   }
 }
 </style>>
