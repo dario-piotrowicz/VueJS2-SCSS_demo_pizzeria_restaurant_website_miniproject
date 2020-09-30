@@ -7,18 +7,9 @@
 </template>
 
 <script>
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faPizzaSlice } from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebookF,
-  faTripadvisor,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
-
+import "./fontAwesomeSetup";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
-library.add(faPizzaSlice, faFacebookF, faTripadvisor, faGithub);
 
 export default {
   components: {
