@@ -1,7 +1,7 @@
 <template>
   <header id="header">
     <div class="centering-container">
-      <router-link to="/"><img src="../assets/images/logo.png" /></router-link>
+      <router-link to="/"><img src="../assets/images/logo.png"/></router-link>
       <nav>
         <div
           class="link"
@@ -31,7 +31,6 @@
     </div>
   </header>
 </template>
-
 
 <style lang="scss" scoped>
 #header {
@@ -65,12 +64,17 @@
             color: rgb(223, 91, 4);
           }
         }
+
         a {
           color: rgb(70, 22, 22);
           margin: 1rem;
           font-size: 1.2rem;
           text-decoration: none;
           transition: 0.5s;
+
+          &:hover {
+            color: rgb(223, 91, 4);
+          }
         }
       }
     }
