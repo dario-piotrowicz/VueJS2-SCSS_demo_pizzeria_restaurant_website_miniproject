@@ -1,7 +1,7 @@
 <template>
   <div class="hero">
     <div class="centering-container content">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -37,5 +37,5 @@ export default {
     left: 0;
     opacity: 0.8;
   }
-}
-</style>>
+}</style
+>>

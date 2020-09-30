@@ -5,19 +5,13 @@
     <p>+12 3456 7891011 | dariospizzas@fakeemail.com</p>
     <div class="social-media">
       <span class="icon facebook" @click="alertNoSocialImplemented()"
-        ><font-awesome-icon
-          :icon="{ prefix: 'fab', iconName: 'facebook-f' }"
-        ></font-awesome-icon>
+        ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
       </span>
       <span class="icon tripadvisor" @click="alertNoSocialImplemented()">
-        <font-awesome-icon
-          :icon="{ prefix: 'fab', iconName: 'tripadvisor' }"
-        ></font-awesome-icon>
+        <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'tripadvisor' }" />
       </span>
       <a target="_blank" :href="githubRepoUrl" class="icon github">
-        <font-awesome-icon
-          :icon="{ prefix: 'fab', iconName: 'github' }"
-        ></font-awesome-icon>
+        <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'github' }" />
       </a>
     </div>
   </footer>
