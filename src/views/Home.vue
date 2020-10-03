@@ -15,18 +15,29 @@
         <h2 class="info">Closed on Tuesdays</h2>
       </div>
     </hero>
+    <generic-info-card
+      :imageSrc="require('../assets/images/generic-info-1.jpg')"
+      title="TITLE"
+      description="description Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Repellat neque odio, illo alias sed, assumenda accusantium debitis sequi
+        harum inventore autem, quas explicabo. Cupiditate, ratione dolore.
+        Eligendi iste ex non!"
+      ><button>Extra Content HERE</button></generic-info-card
+    >
   </div>
 </template>
 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Hero from "../components/Hero";
+import GenericInfoCard from "../components/GenericInfoCard";
 
 export default {
   name: "Home",
   components: {
     hero: Hero,
     "font-awesome-icon": FontAwesomeIcon,
+    "generic-info-card": GenericInfoCard,
   },
 };
 </script>
