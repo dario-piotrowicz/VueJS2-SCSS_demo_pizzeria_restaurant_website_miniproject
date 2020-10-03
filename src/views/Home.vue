@@ -33,6 +33,7 @@
       title="Only Wood-Fired Ovens"
       description="Our pizzas are only cooked in real classic wood-fired ovens, these guarantee a more omogeneous heat distribution which produces richer smoky flavors and a very nice crispy crust not obtainable using moder ovens."
     />
+    <div class="pizza-close-up"></div>
   </div>
 </template>
 
@@ -106,5 +107,12 @@ export default {
 
 .btn.delivery {
   margin-top: 1rem;
+}
+
+.pizza-close-up {
+  width: 100%;
+  height: 10rem;
+  background: url("../assets/images/pizza-close-up.jpg") no-repeat bottom
+    center/cover fixed;
 }
 </style>

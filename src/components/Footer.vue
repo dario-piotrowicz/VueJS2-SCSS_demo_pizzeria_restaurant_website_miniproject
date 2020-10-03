@@ -45,7 +45,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 img {
