@@ -43,7 +43,6 @@
         />
       </div>
     </section>
-    <div class="pizza-close-up"></div>
   </div>
 </template>
 
@@ -126,11 +125,5 @@ export default {
 
 .btn.delivery {
   margin-top: 1rem;
-}
-
-.pizza-close-up {
-  height: 10rem;
-  background: url("../assets/images/pizza-close-up.jpg") no-repeat center
-    left/cover;
 }
 </style>
