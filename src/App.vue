@@ -26,11 +26,6 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.centering-container {
-  max-width: 1100px;
-  margin: auto;
-}
-
 h1,
 h2,
 h3,
@@ -39,5 +34,25 @@ h5,
 h6,
 a {
   font-family: "Sriracha", cursive;
+}
+
+.centering-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.btn {
+  text-decoration: none;
+  color: rgb(223, 91, 4);
+  background-color: rgb(31, 15, 15);
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: color 0.25s, background-color 0.25s;
+
+  &:hover {
+    color: rgb(31, 15, 15);
+    background-color: rgb(223, 91, 4);
+  }
 }
 </style>

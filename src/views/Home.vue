@@ -17,13 +17,17 @@
     </hero>
     <generic-info-card
       :imageSrc="require('../assets/images/generic-info-1.jpg')"
-      title="TITLE"
-      description="description Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Repellat neque odio, illo alias sed, assumenda accusantium debitis sequi
-        harum inventore autem, quas explicabo. Cupiditate, ratione dolore.
-        Eligendi iste ex non!"
-      ><button>Extra Content HERE</button></generic-info-card
+      title="Real Italian Pizza"
+      description="Our pizzas are made with only the best ingredients and cooked as per the traditional italian repices. We pride ourself in our food quality and guarantee you that you won't be dissapointed to eat our pizzas."
+    />
+    <generic-info-card
+      :imageSrc="require('../assets/images/generic-info-delivery.jpg')"
+      title="Delivery"
+      description="We provide a delivery service which brings our delicious pizzas right in front of your door, still warm and ready to eat. All you need to do is call us and place your order, our staff will see that your pizzas are delivered right on time."
+      :image-on-the-right="true"
     >
+      <router-link class="btn delivery" to="/delivery">Read More</router-link>
+    </generic-info-card>
   </div>
 </template>
 
@@ -93,5 +97,9 @@ export default {
       background-color: #fff;
     }
   }
+}
+
+.btn.delivery {
+  margin-top: 1rem;
 }
 </style>
