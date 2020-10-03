@@ -1,8 +1,8 @@
 <template>
   <footer id="footer">
     <img src="../assets/images/logo.png" />
-    <p>Pizzas Rd, Somewhere , 12 - P1ZZ4 United Kingdom</p>
-    <p>+12 3456 7891011 | dariospizzas@fakeemail.com</p>
+    <p class="location">Pizzas Rd, Somewhere , 12 - P1ZZ4 United Kingdom</p>
+    <p class="contact">+12 3456 7891011 | dariospizzas@fakeemail.com</p>
     <div class="social-media">
       <span class="icon facebook" @click="alertNoSocialImplemented()"
         ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
@@ -21,7 +21,7 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       githubRepoUrl:
         "https://github.com/dario-piotrowicz/VueJS2-SCSS_demo_pizzeria_restaurant_website_miniproject",
@@ -49,18 +49,28 @@ export default {
 }
 
 img {
-  width: 60%;
+  width: 15rem;
+}
+
+p {
+  &.location {
+    margin-bottom: 0.25rem;
+  }
+  &.contact {
+    margin-top: 0.25rem;
+    margin-bottom: 1.2rem;
+  }
 }
 
 .social-media {
   display: flex;
 
   & > .icon {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #fff;
-    width: 3rem;
-    height: 3rem;
-    margin: 1rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
