@@ -6,7 +6,7 @@
         <h2 class="heading">True Italian Taste</h2>
         <div class="decorated-orizontal-line">
           <div class="line"></div>
-          <span class="icon"><font-awesome-icon icon="pizza-slice"/></span>
+          <span class="icon"><font-awesome-icon icon="pizza-slice" /></span>
           <div class="line"></div>
         </div>
         <h2 class="opening-times">Opening Times</h2>
@@ -43,7 +43,9 @@ export default {
     margin: 0.5rem;
 
     &.heading {
-      font-size: 2rem;
+      font-family: "Italianno", cursive;
+      font-size: 2.3rem;
+      font-weight: 100;
     }
 
     &.opening-times {
