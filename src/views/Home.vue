@@ -49,11 +49,14 @@ export default {
     }
 
     &.opening-times {
+      margin-top: 1rem;
       font-size: 1.8rem;
     }
 
     &.info {
       font-size: 1.4rem;
+      font-weight: 100;
+      margin: 0 1rem;
     }
   }
 
@@ -67,8 +70,8 @@ export default {
     align-items: center;
 
     .icon {
-      padding: 1rem;
-      font-size: 2rem;
+      padding: 0 1rem;
+      font-size: 1.5rem;
       transform: rotate(-45deg);
     }
 
