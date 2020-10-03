@@ -15,25 +15,33 @@
         <h2 class="info">Closed on Tuesdays</h2>
       </div>
     </hero>
-    <section class="centering-container">
-      <generic-info-card
-        :imageSrc="require('../assets/images/info-generic-pizza.jpg')"
-        title="Real Italian Pizza"
-        description="Our pizzas are made with only the best ingredients and cooked as per the traditional italian repices. We pride ourself in our food quality and guarantee you that you won't be dissapointed to eat our pizzas."
-      />
-      <generic-info-card
-        :imageSrc="require('../assets/images/info-delivery.jpg')"
-        title="Delivery"
-        description="We provide a delivery service which brings our delicious pizzas right in front of your door, still warm and ready to eat. All you need to do is call us and place your order, our staff will see that your pizzas are delivered right on time."
-        :image-on-the-right="true"
-      >
-        <router-link class="btn delivery" to="/delivery">Read More</router-link>
-      </generic-info-card>
-      <generic-info-card
-        :imageSrc="require('../assets/images/info-oven.jpg')"
-        title="Only Wood-Fired Ovens"
-        description="Our pizzas are only cooked in real classic wood-fired ovens, these guarantee a more omogeneous heat distribution which produces richer smoky flavors and a very nice crispy crust not obtainable using moder ovens."
-      />
+    <section>
+      <div class="generic-card-container">
+        <generic-info-card
+          :imageSrc="require('../assets/images/info-generic-pizza.jpg')"
+          title="Real Italian Pizza"
+          description="Our pizzas are made with only the best ingredients and cooked as per the traditional italian repices. We pride ourself in our food quality and guarantee you that you won't be dissapointed to eat our pizzas."
+        />
+      </div>
+      <div class="pizza-background generic-card-container">
+        <generic-info-card
+          :imageSrc="require('../assets/images/info-delivery.jpg')"
+          title="Delivery"
+          description="We provide a delivery service which brings our delicious pizzas right in front of your door, still warm and ready to eat. All you need to do is call us and place your order, our staff will see that your pizzas are delivered right on time."
+          :image-on-the-right="true"
+        >
+          <router-link class="btn delivery" to="/delivery"
+            >Read More</router-link
+          >
+        </generic-info-card>
+      </div>
+      <div class="generic-card-container">
+        <generic-info-card
+          :imageSrc="require('../assets/images/info-oven.jpg')"
+          title="Only Wood-Fired Ovens"
+          description="Our pizzas are only cooked in real classic wood-fired ovens, these guarantee a more omogeneous heat distribution which produces richer smoky flavors and a very nice crispy crust not obtainable using moder ovens."
+        />
+      </div>
     </section>
     <div class="pizza-close-up"></div>
   </div>
@@ -107,14 +115,22 @@ export default {
   }
 }
 
+.generic-card-container {
+  padding: 5rem;
+}
+
+.pizza-background {
+  background: url("../assets/images/pizza-background.jpg") no-repeat bottom
+    center/cover fixed;
+}
+
 .btn.delivery {
   margin-top: 1rem;
 }
 
 .pizza-close-up {
-  width: 100%;
   height: 10rem;
-  background: url("../assets/images/pizza-close-up.jpg") no-repeat bottom
-    center/cover fixed;
+  background: url("../assets/images/pizza-close-up.jpg") no-repeat center
+    left/cover;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="generic-info-card"
+    class="generic-info-card centering-container"
     :class="{ 'image-on-the-right': !!imageOnTheRight }"
   >
     <img :src="imageSrc" />
@@ -25,6 +25,8 @@ export default {
   display: flex;
   align-items: flex-start;
   padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
 
   &.image-on-the-right {
     flex-direction: row-reverse;
@@ -43,9 +45,14 @@ export default {
   }
 
   & > .content {
+    padding: 2rem;
     & > .title {
       margin-top: 0;
       color: rgb(223, 91, 4);
+    }
+
+    & > .description {
+      line-height: 2.5;
     }
   }
 }
