@@ -44,7 +44,6 @@ export default {
 
   .front,
   .back {
-    padding: 1rem;
     border: 2px solid rgb(70, 22, 22);
     border-radius: 10px;
     position: absolute;
@@ -57,11 +56,17 @@ export default {
     transform-origin: 43.5%;
   }
 
+  .front {
+    padding: 1rem;
+  }
+
   .back {
+    width: calc(100% + 2rem);
+    height: calc(100% + 2rem);
     transform: rotateY(180deg);
-    padding: 2rem;
-    text-align: center;
-    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -88,7 +93,8 @@ img {
 }
 
 .description {
-  padding: 2rem;
+  padding: 0 2rem;
   text-align: center;
+  line-height: 1.5;
 }
 </style>
