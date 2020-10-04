@@ -39,7 +39,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.85s;
+  transition: transform 0.8s cubic-bezier(0.74, -0.32, 0.58, 1.42);
   transform-style: preserve-3d;
 
   .front,
