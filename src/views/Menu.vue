@@ -50,6 +50,20 @@ export default {
           description:
             "Quattro formaggi in italian literally means 'four cheeses'. Those are places on top of the standard pizza base and comprise of Mozzarella, Gorgonzola, Fontina and Parmigiano.",
         },
+        {
+          name: "Capricciosa",
+          imageSrc: require("../assets/images/menu/capricciosa.jpg"),
+          price: 12,
+          description:
+            "Standard base of tomatoes sauce and mozzarella, enhanced with baked ham, mushrooms and artichoke.",
+        },
+        {
+          name: "Speck & Mascarpone",
+          imageSrc: require("../assets/images/menu/speck-mascarpone.jpg"),
+          price: 13,
+          description:
+            "Standard base of tomatoes sauce and mozzarella with mascarpone cheese on top and Italian speck, a type of prosciutto on top of that.",
+        },
       ],
     };
   },
