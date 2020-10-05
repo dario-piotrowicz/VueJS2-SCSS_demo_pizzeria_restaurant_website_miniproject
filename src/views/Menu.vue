@@ -37,6 +37,7 @@ export default {
             "The most classic Neapolitan pizza, made with tomatoes sauce, mozzarella cheese and a touch of fresh basil.",
         },
         {
+          id: "pepperoni",
           name: "Pepperoni",
           imageSrc: require("../assets/images/menu/pepperoni.jpg"),
           price: 12,
@@ -44,6 +45,7 @@ export default {
             "One of the most popular pizza, made with a standard base of tomatoes sauce and mozzarella, and completed by slices of delicious pepperoni.",
         },
         {
+          id: "4formaggi",
           name: "Quattro Formaggi",
           imageSrc: require("../assets/images/menu/quattro-formaggi.jpg"),
           price: 12,
@@ -51,6 +53,7 @@ export default {
             "Quattro formaggi in italian literally means 'four cheeses'. Those are places on top of the standard pizza base and comprise of Mozzarella, Gorgonzola, Fontina and Parmigiano.",
         },
         {
+          id: "capricciosa",
           name: "Capricciosa",
           imageSrc: require("../assets/images/menu/capricciosa.jpg"),
           price: 12,
@@ -58,6 +61,7 @@ export default {
             "Standard base of tomatoes sauce and mozzarella, enhanced with baked ham, mushrooms and artichoke.",
         },
         {
+          id: "speckmascarpone",
           name: "Speck & Mascarpone",
           imageSrc: require("../assets/images/menu/speck-mascarpone.jpg"),
           price: 13,
