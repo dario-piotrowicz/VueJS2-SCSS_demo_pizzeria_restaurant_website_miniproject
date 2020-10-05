@@ -15,6 +15,19 @@
           />
         </div>
       </section>
+      <section>
+        <h2 class="section-title">Calzones</h2>
+        <div class="menu-items-container">
+          <menu-item
+            v-for="pizza of calzones"
+            :key="pizza.id"
+            :name="pizza.name"
+            :imageSrc="pizza.imageSrc"
+            :price="pizza.price"
+            :description="pizza.description"
+          />
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -67,6 +80,32 @@ export default {
           price: 13,
           description:
             "Standard base of tomatoes sauce and mozzarella with mascarpone cheese on top and Italian speck, a type of prosciutto on top of that.",
+        },
+      ],
+      calzones: [
+        {
+          id: "standardcalzone",
+          name: "Standard",
+          imageSrc: require("../assets/images/menu/calzone.jpg"),
+          price: 11,
+          description:
+            "All the same ingredients as a standard pizza margherita, but in calzone's fashion.",
+        },
+        {
+          id: "diablocalzone",
+          name: "Diablo",
+          imageSrc: require("../assets/images/menu/diablo-calzone.jpg"),
+          price: 13,
+          description:
+            "Spicy calzone filled with tomatoes sauce, mozzarella, spicy sausage, red onions and chilli peppers.",
+        },
+        {
+          id: "cheesecalzone",
+          name: "Cheese Galore",
+          imageSrc: require("../assets/images/menu/cheese-calzone.jpg"),
+          price: 14,
+          description:
+            "Calzone filled with all sorts of cheese, mozzarella, provola, gorgonzola, cheddar and on top of it nice crispy molted cheese.",
         },
       ],
     };
