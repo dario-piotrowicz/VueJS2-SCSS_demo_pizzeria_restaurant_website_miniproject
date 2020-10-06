@@ -176,4 +176,8 @@ export default {
     flex-shrink: 0;
   }
 }
+
+section {
+  margin: 7rem 2rem;
+}
 </style>
