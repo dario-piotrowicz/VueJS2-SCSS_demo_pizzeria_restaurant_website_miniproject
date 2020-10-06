@@ -2,54 +2,19 @@
   <div id="menu">
     <div class="centering-container">
       <h1 class="title">Menu</h1>
-      <section>
-        <h2 class="section-title">Classic Pizzas</h2>
-        <div class="menu-items-container">
-          <menu-item
-            v-for="pizza of classicPizzas"
-            :key="pizza.id"
-            :name="pizza.name"
-            :imageSrc="pizza.imageSrc"
-            :price="pizza.price"
-            :description="pizza.description"
-          />
-        </div>
-      </section>
-      <section>
-        <h2 class="section-title">Calzones</h2>
-        <div class="menu-items-container">
-          <menu-item
-            v-for="calzone of calzones"
-            :key="calzone.id"
-            :name="calzone.name"
-            :imageSrc="calzone.imageSrc"
-            :price="calzone.price"
-            :description="calzone.description"
-          />
-        </div>
-      </section>
-      <section>
-        <h2 class="section-title">Breads</h2>
-        <div class="menu-items-container">
-          <menu-item
-            v-for="bread of breads"
-            :key="bread.id"
-            :name="bread.name"
-            :imageSrc="bread.imageSrc"
-            :price="bread.price"
-            :description="bread.description"
-          />
-        </div>
-      </section>
+      <menu-section title="Classic Pizzas" :items="classicPizzas" />
+      <menu-section title="Calzones" :items="calzones" />
+      <menu-section title="Breads" :items="breads" />
     </div>
   </div>
 </template>
 
 <script>
-import MenuItem from "../components/MenuItem";
+import MenuSection from "../components/MenuSection";
+
 export default {
   components: {
-    "menu-item": MenuItem,
+    "menu-section": MenuSection,
   },
   data: function () {
     return {
@@ -159,25 +124,5 @@ export default {
 
 .title {
   text-align: center;
-}
-
-.section-title {
-  margin-bottom: 0;
-}
-
-.menu-items-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-
-  & > * {
-    margin: 2rem;
-    flex-shrink: 0;
-  }
-}
-
-section {
-  margin: 7rem 2rem;
 }
 </style>
