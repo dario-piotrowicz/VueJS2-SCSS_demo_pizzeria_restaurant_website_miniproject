@@ -28,6 +28,19 @@
           />
         </div>
       </section>
+      <section>
+        <h2 class="section-title">Breads</h2>
+        <div class="menu-items-container">
+          <menu-item
+            v-for="bread of breads"
+            :key="bread.id"
+            :name="bread.name"
+            :imageSrc="bread.imageSrc"
+            :price="bread.price"
+            :description="bread.description"
+          />
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -106,6 +119,32 @@ export default {
           price: 14,
           description:
             "Calzone filled with all sorts of cheese, mozzarella, provola, gorgonzola, cheddar and on top of it nice crispy molted cheese.",
+        },
+      ],
+      breads: [
+        {
+          id: "garlicbread",
+          name: "Garlic Bread",
+          imageSrc: require("../assets/images/menu/garlic-bread.jpg"),
+          price: 9,
+          description:
+            "Bread topped with garlic, olive oil, oregano and chives.",
+        },
+        {
+          id: "focaccia",
+          name: "Focaccia",
+          imageSrc: require("../assets/images/menu/focaccia.jpg"),
+          price: 9,
+          description:
+            "Classic Italian style focaccia garnished with rosemary and coarse salt.",
+        },
+        {
+          id: "focacciacheese",
+          name: "Cheese Focaccia",
+          imageSrc: require("../assets/images/menu/focaccia-cheese.jpg"),
+          price: 10,
+          description:
+            "Focaccia enchanges with delicious melted cheese on top.",
         },
       ],
     };
