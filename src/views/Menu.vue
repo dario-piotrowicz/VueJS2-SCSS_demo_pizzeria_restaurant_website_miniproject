@@ -120,6 +120,10 @@ export default {
 <style lang="scss" scoped>
 #menu {
   padding: 0 2rem;
+
+  section.menu-section:first-of-type {
+    margin-top: 3.5rem;
+  }
 }
 
 .title {
