@@ -19,12 +19,12 @@
         <h2 class="section-title">Calzones</h2>
         <div class="menu-items-container">
           <menu-item
-            v-for="pizza of calzones"
-            :key="pizza.id"
-            :name="pizza.name"
-            :imageSrc="pizza.imageSrc"
-            :price="pizza.price"
-            :description="pizza.description"
+            v-for="calzone of calzones"
+            :key="calzone.id"
+            :name="calzone.name"
+            :imageSrc="calzone.imageSrc"
+            :price="calzone.price"
+            :description="calzone.description"
           />
         </div>
       </section>
