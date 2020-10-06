@@ -124,5 +124,6 @@ export default {
 
 .title {
   text-align: center;
+  font-size: 2.2rem;
 }
 </style>
