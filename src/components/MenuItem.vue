@@ -33,6 +33,10 @@ export default {
 
     &:hover .menu-item {
       transform: rotateY(180deg);
+
+      .front {
+        opacity: 0;
+      }
     }
   }
 
@@ -54,6 +58,7 @@ export default {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transform-origin: 43.5%;
+    transition: opacity 0.5ms ease 0.5s;
   }
 
   .front {
