@@ -2,6 +2,7 @@
   <div id="delivery">
     <div class="centering-container">
       <h1 class="title">Delivery</h1>
+      <p class="intro-text">To order our pizzas for delivery...</p>
       <div id="delivery-steps-container">
         <delivery-step icon="clipboard-list">
           <div class="delivery-step-content">
@@ -58,12 +59,15 @@ export default {
   font-size: 2.2rem;
 }
 
+.intro-text,
 .delivery-step-content {
   font-size: 1.7rem;
   text-align: center;
   font-family: "Sriracha", cursive;
   line-height: 1.2;
+}
 
+.delivery-step-content {
   a {
     text-decoration: none;
     color: rgb(70, 22, 22);
