@@ -3,27 +3,35 @@
     <div class="centering-container">
       <h1 class="title">Delivery</h1>
       <delivery-step icon="clipboard-list">
-        <div>
-          <span>Choose from out </span
+        <div class="delivery-step-content">
+          <span>Choose from our </span
           ><router-link to="/menu">Menu</router-link>
         </div>
       </delivery-step>
       <delivery-step icon="dollar-sign">
-        <div>
+        <div class="delivery-step-content">
           <p>Note that our delivery fee is 15$</p>
-          <p>(30$ for more then 10 pizzas)</p>
+          <p class="details">(30$ for more then 10 pizzas)</p>
         </div>
       </delivery-step>
       <delivery-step icon="map-signs">
-        <p>And that we deliver in a 5 miles range from our location</p>
-        <p>( Pizzas Rd, Somewhere , 12 - P1ZZ4 United Kingdom )</p>
+        <div class="delivery-step-content">
+          <p>And that we deliver in a 5 miles range from our location</p>
+          <p class="details">
+            ( Pizzas Rd, Somewhere , 12 - P1ZZ4 United Kingdom )
+          </p>
+        </div>
       </delivery-step>
       <delivery-step icon="phone-alt">
-        <p>Call us at +12 3456 7891011 and place your order</p>
+        <div class="delivery-step-content">
+          <p>Call us at +12 3456 7891011 and place your order</p>
+        </div>
       </delivery-step>
       <delivery-step icon="pizza-slice">
-        <p>Receive and pay for your pizzas</p>
-        <p>(we accept either cash or card)</p>
+        <div class="delivery-step-content">
+          <p>Receive and pay for your pizzas</p>
+          <p class="details">(we accept either cash or card)</p>
+        </div>
       </delivery-step>
     </div>
   </div>
@@ -42,5 +50,26 @@ export default {
 .title {
   text-align: center;
   font-size: 2.2rem;
+}
+
+.delivery-step-content {
+  font-size: 1.7rem;
+  text-align: center;
+  font-family: "Sriracha", cursive;
+  line-height: 1.2;
+
+  a {
+    text-decoration: none;
+    color: rgb(70, 22, 22);
+    transition: 0.5s;
+    &:hover {
+      color: rgb(223, 91, 4);
+    }
+  }
+
+  .details {
+    font-size: 1.2rem;
+    font-family: "Source Sans Pro", sans-serif;
+  }
 }
 </style>>
