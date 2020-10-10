@@ -1,9 +1,25 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faPizzaSlice } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPizzaSlice,
+  faClipboardList,
+  faDollarSign,
+  faMapSigns,
+  faPhoneAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faTripadvisor,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 
-library.add(faPizzaSlice, faFacebookF, faTripadvisor, faGithub);
+const solidIcons = [
+  faPizzaSlice,
+  faClipboardList,
+  faDollarSign,
+  faMapSigns,
+  faPhoneAlt,
+];
+
+const brandIcons = [faFacebookF, faTripadvisor, faGithub];
+
+library.add(...solidIcons, ...brandIcons);
