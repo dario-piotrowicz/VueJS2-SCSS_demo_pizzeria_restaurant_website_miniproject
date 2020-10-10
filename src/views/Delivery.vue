@@ -8,12 +8,14 @@
           ><router-link to="/menu">Menu</router-link>
         </div>
       </delivery-step>
+      <div class="delivery-steps-divider" />
       <delivery-step icon="dollar-sign">
         <div class="delivery-step-content">
           <p>Note that our delivery fee is 15$</p>
           <p class="details">(30$ for more then 10 pizzas)</p>
         </div>
       </delivery-step>
+      <div class="delivery-steps-divider" />
       <delivery-step icon="map-signs">
         <div class="delivery-step-content">
           <p>And that we deliver in a 5 miles range from our location</p>
@@ -22,11 +24,13 @@
           </p>
         </div>
       </delivery-step>
+      <div class="delivery-steps-divider" />
       <delivery-step icon="phone-alt">
         <div class="delivery-step-content">
           <p>Call us at +12 3456 7891011 and place your order</p>
         </div>
       </delivery-step>
+      <div class="delivery-steps-divider" />
       <delivery-step icon="pizza-slice">
         <div class="delivery-step-content">
           <p>Receive and pay for your pizzas</p>
@@ -71,5 +75,13 @@ export default {
     font-size: 1.2rem;
     font-family: "Source Sans Pro", sans-serif;
   }
+}
+
+.delivery-steps-divider {
+  height: 10rem;
+  width: 0.5rem;
+  margin: 3rem auto;
+  background-color: rgb(70, 22, 22);
+  border-radius: 5px;
 }
 </style>>
