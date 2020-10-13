@@ -60,6 +60,7 @@ a {
   background-color: #f4f4f4;
   padding: 2rem 0;
   &-title {
+    padding-top: 2rem;
     margin: 0;
     text-align: center;
     font-size: 2.2rem;
