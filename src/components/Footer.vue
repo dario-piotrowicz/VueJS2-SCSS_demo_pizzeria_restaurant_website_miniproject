@@ -42,10 +42,13 @@ export default {
 
 <style lang="scss" scoped>
 #footer {
+  background-color: #fff;
+  box-shadow: 0px 6px 20px 3px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
+  padding: 2.5rem;
 }
 
 img {

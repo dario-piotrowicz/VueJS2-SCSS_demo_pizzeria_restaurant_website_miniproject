@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="page" id="home">
     <hero>
       <div class="hero-content centering-container">
         <img src="../assets/images/logo.png" />
@@ -62,6 +62,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page#home {
+  padding-top: 0;
+}
+
 .hero-content {
   display: flex;
   flex-direction: column;

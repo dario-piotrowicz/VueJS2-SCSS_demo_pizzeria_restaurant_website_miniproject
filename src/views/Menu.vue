@@ -1,7 +1,7 @@
 <template>
-  <div id="menu">
+  <div class="page" id="menu">
     <div class="centering-container">
-      <h1 class="title">Menu</h1>
+      <h1 class="page-title">Menu</h1>
       <menu-section title="Classic Pizzas" :items="classicPizzas" />
       <menu-section title="Calzones" :items="calzones" />
       <menu-section title="Breads" :items="breads" />
@@ -119,15 +119,8 @@ export default {
 
 <style lang="scss" scoped>
 #menu {
-  padding: 0 2rem;
-
   section.menu-section:first-of-type {
     margin-top: 3.5rem;
   }
-}
-
-.title {
-  text-align: center;
-  font-size: 2.2rem;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <header id="header">
     <div class="centering-container">
-      <router-link to="/"><img src="../assets/images/logo.png"/></router-link>
+      <router-link to="/"><img src="../assets/images/logo.png" /></router-link>
       <nav>
         <div
           class="link"
@@ -35,6 +35,9 @@
 <style lang="scss" scoped>
 #header {
   background-color: #fff;
+  box-shadow: 0px -6px 20px 3px;
+  position: relative;
+
   .centering-container {
     display: flex;
     align-items: center;

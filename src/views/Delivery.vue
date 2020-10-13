@@ -1,7 +1,7 @@
 <template>
-  <div id="delivery">
+  <div class="page" id="delivery">
     <div class="centering-container">
-      <h1 class="title">Delivery</h1>
+      <h1 class="page-title">Delivery</h1>
       <p class="intro-text">To order our pizzas for delivery...</p>
       <div id="delivery-steps-container">
         <delivery-step icon="clipboard-list">
@@ -54,11 +54,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
-  text-align: center;
-  font-size: 2.2rem;
-}
-
 .intro-text,
 .delivery-step-content {
   font-size: 1.7rem;

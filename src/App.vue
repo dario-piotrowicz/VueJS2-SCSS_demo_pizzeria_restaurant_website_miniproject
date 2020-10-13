@@ -55,4 +55,14 @@ a {
     background-color: rgb(223, 91, 4);
   }
 }
+
+.page {
+  background-color: #f4f4f4;
+  padding: 2rem 0;
+  &-title {
+    margin: 0;
+    text-align: center;
+    font-size: 2.2rem;
+  }
+}
 </style>
