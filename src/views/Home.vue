@@ -28,7 +28,14 @@
           :title="info.title"
           :description="info.description"
           :image-on-the-right="index % 2 === 1"
-        />
+        >
+          <router-link
+            v-if="info.linkButton"
+            :class="info.linkButton.class"
+            :to="info.linkButton.to"
+            >{{ info.linkButton.text }}</router-link
+          >
+        </generic-info-card>
       </div>
     </section>
   </div>
@@ -59,6 +66,11 @@ export default {
           title: "Delivery",
           description:
             "We provide a delivery service which brings our delicious pizzas right in front of your door, still warm and ready to eat. All you need to do is call us and place your order, our staff will see that your pizzas are delivered right on time.",
+          linkButton: {
+            text: "Read More",
+            class: "btn delivery",
+            to: "/delivery",
+          },
         },
         {
           imageSrc: require("../assets/images/info-oven.jpg"),
