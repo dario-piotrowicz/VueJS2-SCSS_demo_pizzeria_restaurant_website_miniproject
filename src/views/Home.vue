@@ -16,30 +16,18 @@
       </div>
     </hero>
     <section>
-      <div class="generic-card-container">
+      <div
+        v-for="(info, index) of genericInfos"
+        :key="`${index}-${info.title}`"
+        :class="`generic-card-container${
+          index % 2 === 1 ? ' pizza-background' : ''
+        }`"
+      >
         <generic-info-card
-          :imageSrc="require('../assets/images/info-generic-pizza.jpg')"
-          title="Real Italian Pizza"
-          description="Our pizzas are made with only the best ingredients and cooked as per the traditional italian repices. We pride ourself in our food quality and guarantee you that you won't be dissapointed to eat our pizzas."
-        />
-      </div>
-      <div class="pizza-background generic-card-container">
-        <generic-info-card
-          :imageSrc="require('../assets/images/info-delivery.jpg')"
-          title="Delivery"
-          description="We provide a delivery service which brings our delicious pizzas right in front of your door, still warm and ready to eat. All you need to do is call us and place your order, our staff will see that your pizzas are delivered right on time."
-          :image-on-the-right="true"
-        >
-          <router-link class="btn delivery" to="/delivery"
-            >Read More</router-link
-          >
-        </generic-info-card>
-      </div>
-      <div class="generic-card-container">
-        <generic-info-card
-          :imageSrc="require('../assets/images/info-oven.jpg')"
-          title="Only Wood-Fired Ovens"
-          description="Our pizzas are only cooked in real classic wood-fired ovens, these guarantee a more omogeneous heat distribution which produces richer smoky flavors and a very nice crispy crust not obtainable using moder ovens."
+          :imageSrc="info.imageSrc"
+          :title="info.title"
+          :description="info.description"
+          :image-on-the-right="index % 2 === 1"
         />
       </div>
     </section>
@@ -57,6 +45,30 @@ const capitalizeFirstLetter = (string) => {
 
 export default {
   name: "Home",
+  data: function () {
+    return {
+      genericInfos: [
+        {
+          imageSrc: require("../assets/images/info-generic-pizza.jpg"),
+          title: "Real Italian Pizza",
+          description:
+            "Our pizzas are made with only the best ingredients and cooked as per the traditional italian repices. We pride ourself in our food quality and guarantee you that you won't be dissapointed to eat our pizzas.",
+        },
+        {
+          imageSrc: require("../assets/images/info-delivery.jpg"),
+          title: "Delivery",
+          description:
+            "We provide a delivery service which brings our delicious pizzas right in front of your door, still warm and ready to eat. All you need to do is call us and place your order, our staff will see that your pizzas are delivered right on time.",
+        },
+        {
+          imageSrc: require("../assets/images/info-oven.jpg"),
+          title: "Only Wood-Fired Ovens",
+          description:
+            "Our pizzas are only cooked in real classic wood-fired ovens, these guarantee a more omogeneous heat distribution which produces richer smoky flavors and a very nice crispy crust not obtainable using moder ovens.",
+        },
+      ],
+    };
+  },
   computed: {
     closedOnText: function () {
       if (
