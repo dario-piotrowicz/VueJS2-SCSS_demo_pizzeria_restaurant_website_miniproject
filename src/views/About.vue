@@ -5,19 +5,10 @@
     </div>
     <div class="full-width-wrapper">
       <div class="basic-info-container centering-container">
-        <div class="contact-info">
-          <div class="info">
-            <p>HOME_ICON</p>
-            <p>address</p>
-          </div>
-          <div class="info">
-            <p>PHONE_ICON</p>
-            <p>phone number</p>
-          </div>
-          <div class="info">
-            <p>EMAIL_ICON</p>
-            <p>email addr</p>
-          </div>
+        <div class="contact-info-container">
+          <contact-info icon="home" info="address" />
+          <contact-info icon="phone-alt" info="phone number" />
+          <contact-info icon="at" info="email addr" />
         </div>
         <div class="opening-times-container">
           <h2 class="opening-times">Opening Times</h2>
@@ -55,6 +46,16 @@
   </div>
 </template>
 
+<script>
+import ContactInfo from "../components/ContactInfo";
+
+export default {
+  components: {
+    "contact-info": ContactInfo,
+  },
+};
+</script>>
+
 <style lang="scss" scoped>
 .full-width-wrapper {
   background-color: #fff;
@@ -65,7 +66,7 @@
     display: flex;
     justify-content: space-around;
 
-    .contact-info,
+    .contact-info-container,
     .opening-times-container {
       padding: 2rem;
       border: 1px solid red;

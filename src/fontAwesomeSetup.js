@@ -5,6 +5,8 @@ import {
   faDollarSign,
   faMapSigns,
   faPhoneAlt,
+  faHome,
+  faAt,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -18,6 +20,8 @@ const solidIcons = [
   faDollarSign,
   faMapSigns,
   faPhoneAlt,
+  faHome,
+  faAt,
 ];
 
 const brandIcons = [faFacebookF, faTripadvisor, faGithub];
