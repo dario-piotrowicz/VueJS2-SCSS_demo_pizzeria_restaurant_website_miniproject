@@ -2,9 +2,12 @@
   <div class="page" id="menu">
     <div class="centering-container">
       <h1 class="page-title">Menu</h1>
-      <menu-section title="Classic Pizzas" :items="classicPizzas" />
-      <menu-section title="Calzones" :items="calzones" />
-      <menu-section title="Breads" :items="breads" />
+      <menu-section
+        v-for="section of $store.state.menuSections"
+        :key="section.title"
+        :title="section.title"
+        :items="section.items"
+      />
     </div>
   </div>
 </template>
@@ -15,17 +18,6 @@ import MenuSection from "../components/MenuSection";
 export default {
   components: {
     "menu-section": MenuSection,
-  },
-  computed: {
-    classicPizzas: function () {
-      return this.$store.state.menuData.classicPizzas;
-    },
-    calzones: function () {
-      return this.$store.state.menuData.calzones;
-    },
-    breads: function () {
-      return this.$store.state.menuData.breads;
-    },
   },
 };
 </script>
