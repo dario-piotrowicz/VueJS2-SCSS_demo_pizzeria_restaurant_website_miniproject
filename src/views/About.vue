@@ -6,9 +6,12 @@
     <div class="full-width-wrapper">
       <div class="basic-info-container centering-container">
         <div class="contact-info-container">
-          <contact-info icon="home" info="address" />
-          <contact-info icon="phone-alt" info="phone number" />
-          <contact-info icon="at" info="email addr" />
+          <contact-info
+            icon="home"
+            info="Pizzas Rd, Somewhere , 12 - P1ZZ4 United Kingdom"
+          />
+          <contact-info icon="phone-alt" info="+12 3456 7891011" />
+          <contact-info icon="at" info="dariospizzas@fakeemail.com" />
         </div>
         <div class="opening-times-container">
           <h2 class="opening-times">Opening Times</h2>
