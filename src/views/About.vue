@@ -7,41 +7,22 @@
       <div class="basic-info-container centering-container">
         <div class="contact-info-container">
           <contact-info
-            icon="home"
-            info="Pizzas Rd, Somewhere , 12 - P1ZZ4 United Kingdom"
+            v-for="cInfo of contactInfos"
+            :key="`${cInfo.icon}-${cInfo.info}`"
+            :icon="cInfo.icon"
+            :info="cInfo.info"
           />
-          <contact-info icon="phone-alt" info="+12 3456 7891011" />
-          <contact-info icon="at" info="dariospizzas@fakeemail.com" />
         </div>
         <div class="opening-times-container">
           <h2 class="opening-times">Opening Times</h2>
-          <div class="times-info">
-            <div class="day-of-week">Monday:</div>
-            <div class="times">11:00 - 16:00, 19:00 - 23:30</div>
-          </div>
-          <div class="times-info">
-            <div class="day-of-week">Tuesday:</div>
-            <div class="closed">Closed</div>
-          </div>
-          <div class="times-info">
-            <div class="day-of-week">Wednesday:</div>
-            <div class="times">11:00 - 16:00, 19:00 - 23:30</div>
-          </div>
-          <div class="times-info">
-            <div class="day-of-week">Thursday:</div>
-            <div class="times">11:00 - 16:00, 19:00 - 23:30</div>
-          </div>
-          <div class="times-info">
-            <div class="day-of-week">Friday:</div>
-            <div class="times">11:00 - 16:00, 19:00 - 23:30</div>
-          </div>
-          <div class="times-info">
-            <div class="day-of-week">Saturday:</div>
-            <div class="times">11:00 - 16:00, 19:00 - 23:30</div>
-          </div>
-          <div class="times-info">
-            <div class="day-of-week">Sunday:</div>
-            <div class="times">11:00 - 16:00, 19:00 - 23:30</div>
+          <div
+            v-for="opTime of openingTimesInfo"
+            :key="opTime.dayOfWeek"
+            class="times-info"
+          >
+            <div class="day-of-week">{{ opTime.dayOfWeek }}:</div>
+            <div v-if="opTime.info" class="times">{{ opTime.info }}</div>
+            <div v-else class="closed">Closed</div>
           </div>
         </div>
       </div>
@@ -53,6 +34,48 @@
 import ContactInfo from "../components/ContactInfo";
 
 export default {
+  data: function () {
+    return {
+      contactInfos: [
+        {
+          icon: "home",
+          info: "Pizzas Rd, Somewhere , 12 - P1ZZ4 United Kingdom",
+        },
+        { icon: "phone-alt", info: "+12 3456 7891011" },
+        { icon: "at", info: "dariospizzas@fakeemail.com" },
+      ],
+      openingTimesInfo: [
+        {
+          dayOfWeek: "Monday",
+          info: "11:00 - 16:00, 19:00 - 23:30",
+        },
+        {
+          dayOfWeek: "Tuesday",
+          info: "",
+        },
+        {
+          dayOfWeek: "Wednesday",
+          info: "11:00 - 16:00, 19:00 - 23:30",
+        },
+        {
+          dayOfWeek: "Thursday",
+          info: "11:00 - 16:00, 19:00 - 23:30",
+        },
+        {
+          dayOfWeek: "Friday",
+          info: "11:00 - 16:00, 19:00 - 23:30",
+        },
+        {
+          dayOfWeek: "Saturday",
+          info: "11:00 - 16:00, 19:00 - 23:30",
+        },
+        {
+          dayOfWeek: "Sunday",
+          info: "11:00 - 16:00, 19:00 - 23:30",
+        },
+      ],
+    };
+  },
   components: {
     "contact-info": ContactInfo,
   },
