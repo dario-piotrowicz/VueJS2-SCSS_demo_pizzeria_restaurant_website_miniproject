@@ -33,6 +33,20 @@
 <script>
 import ContactInfo from "../components/ContactInfo";
 
+const standardOpeningTimes = "11:00 - 16:00, 19:00 - 23:30";
+const openingTimesInfo = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+].map((dayOfWeek) => ({
+  dayOfWeek,
+  info: dayOfWeek !== "Tuesday" ? standardOpeningTimes : null,
+}));
+
 export default {
   data: function () {
     return {
@@ -44,36 +58,7 @@ export default {
         { icon: "phone-alt", info: "+12 3456 7891011" },
         { icon: "at", info: "dariospizzas@fakeemail.com" },
       ],
-      openingTimesInfo: [
-        {
-          dayOfWeek: "Monday",
-          info: "11:00 - 16:00, 19:00 - 23:30",
-        },
-        {
-          dayOfWeek: "Tuesday",
-          info: "",
-        },
-        {
-          dayOfWeek: "Wednesday",
-          info: "11:00 - 16:00, 19:00 - 23:30",
-        },
-        {
-          dayOfWeek: "Thursday",
-          info: "11:00 - 16:00, 19:00 - 23:30",
-        },
-        {
-          dayOfWeek: "Friday",
-          info: "11:00 - 16:00, 19:00 - 23:30",
-        },
-        {
-          dayOfWeek: "Saturday",
-          info: "11:00 - 16:00, 19:00 - 23:30",
-        },
-        {
-          dayOfWeek: "Sunday",
-          info: "11:00 - 16:00, 19:00 - 23:30",
-        },
-      ],
+      openingTimesInfo,
     };
   },
   components: {
