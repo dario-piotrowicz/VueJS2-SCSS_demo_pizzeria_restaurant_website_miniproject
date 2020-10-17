@@ -10,9 +10,9 @@
           <div class="line"></div>
         </div>
         <h2 class="opening-times">Opening Times</h2>
-        <h2 class="info">Lunch: 11:00 - 16:00</h2>
-        <h2 class="info">Dinner: 19:00 - 23:30</h2>
-        <h2 class="info">Closed on Tuesdays</h2>
+        <h2 class="info">Lunch: {{ $store.state.lunchOpeningHours }}</h2>
+        <h2 class="info">Dinner: {{ $store.state.dinnerOpeningHours }}</h2>
+        <h2 class="info">{{ closedOnText }}</h2>
       </div>
     </hero>
     <section>
@@ -51,8 +51,35 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Hero from "../components/Hero";
 import GenericInfoCard from "../components/GenericInfoCard";
 
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 export default {
   name: "Home",
+  computed: {
+    closedOnText: function () {
+      if (
+        !this.$store.state.daysOfWeekWhenClosed ||
+        this.$store.state.daysOfWeekWhenClosed.length === 0
+      )
+        return "Open every day";
+
+      const daysOfWeekWhenClosed = this.$store.state.daysOfWeekWhenClosed.map(
+        (day) => `${capitalizeFirstLetter(day)}s`
+      );
+
+      let daysText = daysOfWeekWhenClosed[0];
+      let idx = 0;
+      while (idx < daysOfWeekWhenClosed.length - 1) {
+        idx++;
+        const commaOrAnd =
+          idx < daysOfWeekWhenClosed.length - 1 ? ", " : " and ";
+        daysText = `${daysText}${commaOrAnd}${daysOfWeekWhenClosed[idx]}`;
+      }
+      return `Closed on ${daysText}`;
+    },
+  },
   components: {
     hero: Hero,
     "font-awesome-icon": FontAwesomeIcon,

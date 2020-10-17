@@ -33,26 +33,7 @@
 <script>
 import ContactInfo from "../components/ContactInfo";
 
-const standardOpeningTimes = "11:00 - 16:00, 19:00 - 23:30";
-const openingTimesInfo = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-].map((dayOfWeek) => ({
-  dayOfWeek,
-  info: dayOfWeek !== "Tuesday" ? standardOpeningTimes : null,
-}));
-
 export default {
-  data: function () {
-    return {
-      openingTimesInfo,
-    };
-  },
   computed: {
     contactInfos: function () {
       return [
@@ -63,6 +44,25 @@ export default {
         { icon: "phone-alt", info: this.$store.state.phoneNumber },
         { icon: "at", info: this.$store.state.email },
       ];
+    },
+    openingTimesInfo: function () {
+      const standardOpeningTimes = `${this.$store.state.lunchOpeningHours}, ${this.$store.state.dinnerOpeningHours}`;
+      return [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ].map((dayOfWeek) => ({
+        dayOfWeek,
+        info: !this.$store.state.daysOfWeekWhenClosed.includes(
+          dayOfWeek.toLowerCase()
+        )
+          ? standardOpeningTimes
+          : null,
+      }));
     },
   },
   components: {
