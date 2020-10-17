@@ -50,16 +50,20 @@ const openingTimesInfo = [
 export default {
   data: function () {
     return {
-      contactInfos: [
-        {
-          icon: "home",
-          info: "Pizzas Rd, Somewhere , 12 - P1ZZ4 United Kingdom",
-        },
-        { icon: "phone-alt", info: "+12 3456 7891011" },
-        { icon: "at", info: "dariospizzas@fakeemail.com" },
-      ],
       openingTimesInfo,
     };
+  },
+  computed: {
+    contactInfos: function () {
+      return [
+        {
+          icon: "home",
+          info: this.$store.state.location,
+        },
+        { icon: "phone-alt", info: this.$store.state.phoneNumber },
+        { icon: "at", info: this.$store.state.email },
+      ];
+    },
   },
   components: {
     "contact-info": ContactInfo,

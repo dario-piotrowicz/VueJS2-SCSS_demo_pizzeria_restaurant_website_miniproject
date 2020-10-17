@@ -1,8 +1,10 @@
 <template>
   <footer id="footer">
     <img src="../assets/images/logo.png" />
-    <p class="location">Pizzas Rd, Somewhere , 12 - P1ZZ4 United Kingdom</p>
-    <p class="contact">+12 3456 7891011 | dariospizzas@fakeemail.com</p>
+    <p class="location">{{ $store.state.location }}</p>
+    <p class="contact">
+      {{ $store.state.phoneNumber }} | {{ $store.state.email }}
+    </p>
     <div class="social-media">
       <span class="icon facebook" @click="alertNoSocialImplemented()"
         ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
