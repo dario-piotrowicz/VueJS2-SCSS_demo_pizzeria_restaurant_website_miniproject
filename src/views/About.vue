@@ -72,10 +72,11 @@ export default {
     .contact-info-container,
     .opening-times-container {
       padding: 2rem;
-      border: 1px solid red;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      flex-basis: 30%;
     }
   }
 }
