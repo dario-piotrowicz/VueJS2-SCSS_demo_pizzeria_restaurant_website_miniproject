@@ -116,11 +116,4 @@ export default {
     text-align: center;
   }
 }
-
-.contact-info {
-  .info {
-    padding: 2rem;
-    border: 1px solid blue;
-  }
-}
 </style>
