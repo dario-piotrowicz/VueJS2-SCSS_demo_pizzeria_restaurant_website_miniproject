@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <app-header />
-    <router-view />
+    <div id="app-body">
+      <router-view />
+    </div>
     <app-footer />
   </div>
 </template>
@@ -65,5 +67,9 @@ a {
     text-align: center;
     font-size: 2.2rem;
   }
+}
+
+#app-body {
+  padding-top: 5rem;
 }
 </style>

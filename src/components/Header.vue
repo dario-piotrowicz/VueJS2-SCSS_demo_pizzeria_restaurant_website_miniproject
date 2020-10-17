@@ -36,7 +36,9 @@
 #header {
   background-color: #fff;
   box-shadow: 0px -6px 20px 3px;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 
   .centering-container {
     display: flex;
