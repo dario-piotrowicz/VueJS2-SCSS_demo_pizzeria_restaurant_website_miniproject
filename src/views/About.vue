@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import ContactInfo from "../components/ContactInfo";
 
 export default {
@@ -39,14 +40,14 @@ export default {
       return [
         {
           icon: "home",
-          info: this.$store.state.location,
+          info: this.location,
         },
-        { icon: "phone-alt", info: this.$store.state.phoneNumber },
-        { icon: "at", info: this.$store.state.email },
+        { icon: "phone-alt", info: this.phoneNumber },
+        { icon: "at", info: this.email },
       ];
     },
     openingTimesInfo: function () {
-      const standardOpeningTimes = `${this.$store.state.lunchOpeningHours}, ${this.$store.state.dinnerOpeningHours}`;
+      const standardOpeningTimes = `${this.lunchOpeningHours}, ${this.dinnerOpeningHours}`;
       return [
         "Monday",
         "Tuesday",
@@ -57,13 +58,19 @@ export default {
         "Sunday",
       ].map((dayOfWeek) => ({
         dayOfWeek,
-        info: !this.$store.state.daysOfWeekWhenClosed.includes(
-          dayOfWeek.toLowerCase()
-        )
+        info: !this.daysOfWeekWhenClosed.includes(dayOfWeek.toLowerCase())
           ? standardOpeningTimes
           : null,
       }));
     },
+    ...mapState([
+      "location",
+      "phoneNumber",
+      "email",
+      "lunchOpeningHours",
+      "dinnerOpeningHours",
+      "daysOfWeekWhenClosed",
+    ]),
   },
   components: {
     "contact-info": ContactInfo,

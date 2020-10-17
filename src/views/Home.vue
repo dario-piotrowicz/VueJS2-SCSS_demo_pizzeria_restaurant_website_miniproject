@@ -10,8 +10,8 @@
           <div class="line"></div>
         </div>
         <h2 class="opening-times">Opening Times</h2>
-        <h2 class="info">Lunch: {{ $store.state.lunchOpeningHours }}</h2>
-        <h2 class="info">Dinner: {{ $store.state.dinnerOpeningHours }}</h2>
+        <h2 class="info">Lunch: {{ lunchOpeningHours }}</h2>
+        <h2 class="info">Dinner: {{ dinnerOpeningHours }}</h2>
         <h2 class="info">{{ closedOnText }}</h2>
       </div>
     </hero>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Hero from "../components/Hero";
 import GenericInfoCard from "../components/GenericInfoCard";
@@ -82,24 +83,26 @@ export default {
     };
   },
   computed: {
+    ...mapState([
+      "lunchOpeningHours",
+      "dinnerOpeningHours",
+      "daysOfWeekWhenClosed",
+    ]),
     closedOnText: function () {
-      if (
-        !this.$store.state.daysOfWeekWhenClosed ||
-        this.$store.state.daysOfWeekWhenClosed.length === 0
-      )
+      if (!this.daysOfWeekWhenClosed || this.daysOfWeekWhenClosed.length === 0)
         return "Open every day";
 
-      const daysOfWeekWhenClosed = this.$store.state.daysOfWeekWhenClosed.map(
+      const daysOfWeekWhenClosedTmp = this.daysOfWeekWhenClosed.map(
         (day) => `${capitalizeFirstLetter(day)}s`
       );
 
-      let daysText = daysOfWeekWhenClosed[0];
+      let daysText = daysOfWeekWhenClosedTmp[0];
       let idx = 0;
-      while (idx < daysOfWeekWhenClosed.length - 1) {
+      while (idx < daysOfWeekWhenClosedTmp.length - 1) {
         idx++;
         const commaOrAnd =
-          idx < daysOfWeekWhenClosed.length - 1 ? ", " : " and ";
-        daysText = `${daysText}${commaOrAnd}${daysOfWeekWhenClosed[idx]}`;
+          idx < daysOfWeekWhenClosedTmp.length - 1 ? ", " : " and ";
+        daysText = `${daysText}${commaOrAnd}${daysOfWeekWhenClosedTmp[idx]}`;
       }
       return `Closed on ${daysText}`;
     },

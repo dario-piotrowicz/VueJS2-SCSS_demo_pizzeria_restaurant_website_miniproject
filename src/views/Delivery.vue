@@ -21,15 +21,13 @@
         <delivery-step icon="map-signs">
           <div class="delivery-step-content">
             <p>And that we deliver in a 5 miles range from our location</p>
-            <p class="details">( {{ $store.state.location }} )</p>
+            <p class="details">( {{ location }} )</p>
           </div>
         </delivery-step>
         <div class="delivery-steps-divider" />
         <delivery-step icon="phone-alt">
           <div class="delivery-step-content">
-            <p>
-              Call us at {{ $store.state.phoneNumber }} and place your order
-            </p>
+            <p>Call us at {{ phoneNumber }} and place your order</p>
           </div>
         </delivery-step>
         <div class="delivery-steps-divider" />
@@ -45,10 +43,15 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import DeliveryStep from "../components/DeliveryStep";
+
 export default {
   components: {
     "delivery-step": DeliveryStep,
+  },
+  computed: {
+    ...mapState(["location", "phoneNumber"]),
   },
 };
 </script>

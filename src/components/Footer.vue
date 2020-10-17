@@ -1,10 +1,8 @@
 <template>
   <footer id="footer">
     <img src="../assets/images/logo.png" />
-    <p class="location">{{ $store.state.location }}</p>
-    <p class="contact">
-      {{ $store.state.phoneNumber }} | {{ $store.state.email }}
-    </p>
+    <p class="location">{{ location }}</p>
+    <p class="contact">{{ phoneNumber }} | {{ email }}</p>
     <div class="social-media">
       <span class="icon facebook" @click="alertNoSocialImplemented()"
         ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
@@ -20,6 +18,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
@@ -31,6 +30,9 @@ export default {
   },
   components: {
     "font-awesome-icon": FontAwesomeIcon,
+  },
+  computed: {
+    ...mapState(["location", "phoneNumber", "email"]),
   },
   methods: {
     alertNoSocialImplemented: () => {

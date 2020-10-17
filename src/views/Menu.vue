@@ -3,7 +3,7 @@
     <div class="centering-container">
       <h1 class="page-title">Menu</h1>
       <menu-section
-        v-for="section of $store.state.menuSections"
+        v-for="section of menuSections"
         :key="section.title"
         :title="section.title"
         :items="section.items"
@@ -13,11 +13,15 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import MenuSection from "../components/MenuSection";
 
 export default {
   components: {
     "menu-section": MenuSection,
+  },
+  computed: {
+    ...mapState(["menuSections"]),
   },
 };
 </script>
