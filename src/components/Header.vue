@@ -1,5 +1,5 @@
 <template>
-  <header id="header">
+  <header id="header" :class="smallerHeaderClass">
     <div class="centering-container">
       <router-link to="/"><img src="../assets/images/logo.png" /></router-link>
       <nav>
@@ -32,6 +32,32 @@
   </header>
 </template>
 
+<script>
+export default {
+  data: function () {
+    return {
+      smallerHeaderClass: "",
+    };
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const wasSmaller = this.smallerHeaderClass === "smaller-header";
+      if (window.scrollY > 200) {
+        this.smallerHeaderClass = "smaller-header";
+      } else if (wasSmaller) {
+        this.smallerHeaderClass = "normal-header";
+      }
+    },
+  },
+};
+</script>>
+
 <style lang="scss" scoped>
 #header {
   background-color: #fff;
@@ -39,6 +65,32 @@
   position: fixed;
   width: 100%;
   z-index: 100;
+
+  &.smaller-header {
+    animation: smaller-header-animation 0.5s ease-in-out forwards;
+
+    .centering-container {
+      img {
+        animation: smaller-header-animation-img 0.5s ease-in-out forwards;
+      }
+      .link {
+        animation: smaller-header-animation-link 0.5s ease-in-out forwards;
+      }
+    }
+  }
+
+  &.normal-header {
+    animation: normal-header-animation 0.5s ease-in-out forwards;
+
+    .centering-container {
+      img {
+        animation: normal-header-animation-img 0.5s ease-in-out forwards;
+      }
+      .link {
+        animation: normal-header-animation-link 0.5s ease-in-out forwards;
+      }
+    }
+  }
 
   .centering-container {
     display: flex;
@@ -88,7 +140,11 @@
 
 @keyframes link-underline {
   0% {
+    opacity: 0;
     transform: translateY(5px);
+  }
+  30% {
+    opacity: 1;
   }
   70% {
     transform: translateY(-5px);
@@ -101,6 +157,162 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@mixin smaller-header-styles {
+  opacity: 0.75;
+}
+
+@mixin normal-header-styles {
+  opacity: 1;
+}
+
+@keyframes smaller-header-animation {
+  0% {
+    @include normal-header-styles;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles;
+  }
+}
+
+@keyframes normal-header-animation {
+  0% {
+    @include smaller-header-styles;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles;
+  }
+}
+
+@mixin smaller-header-styles-img {
+  width: 11rem;
+}
+
+@mixin normal-header-styles-img {
+  width: 15rem;
+}
+
+@keyframes smaller-header-animation-img {
+  0% {
+    @include normal-header-styles-img;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles-img;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles-img;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles-img;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles-img;
+  }
+}
+
+@keyframes normal-header-animation-img {
+  0% {
+    @include smaller-header-styles-img;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles-img;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles-img;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles-img;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles-img;
+  }
+}
+
+@mixin smaller-header-styles-link {
+  padding: 0;
+}
+
+@mixin normal-header-styles-link {
+  padding: 1rem 0.5rem;
+}
+
+@keyframes smaller-header-animation-link {
+  0% {
+    @include normal-header-styles-link;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles-link;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles-link;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles-link;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles-link;
+  }
+}
+
+@keyframes normal-header-animation-link {
+  0% {
+    @include smaller-header-styles-link;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles-link;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles-link;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles-link;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles-link;
   }
 }
 </style>
