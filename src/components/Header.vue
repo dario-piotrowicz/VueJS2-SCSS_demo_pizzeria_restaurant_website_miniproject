@@ -75,6 +75,9 @@ export default {
       }
       .link {
         animation: smaller-header-animation-link 0.5s ease-in-out forwards;
+        &.router-link-exact-active::after {
+          margin-top: 0;
+        }
       }
     }
   }
