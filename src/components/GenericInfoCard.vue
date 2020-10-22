@@ -23,7 +23,7 @@ export default {
 <style lang="scss" scoped>
 .generic-info-card {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
@@ -56,4 +56,4 @@ export default {
     }
   }
 }
-</style>>
+</style>
