@@ -56,4 +56,26 @@ export default {
     }
   }
 }
+
+@media (max-width: 950px) {
+  .generic-info-card {
+    flex-direction: column;
+    text-align: center;
+
+    &.image-on-the-right {
+      flex-direction: column;
+    }
+
+    & > img {
+      width: 90%;
+      flex-basis: 0;
+      height: 130px;
+      object-position: center;
+    }
+
+    & > .content {
+      width: 70%;
+    }
+  }
+}
 </style>
