@@ -88,6 +88,10 @@ export default {
     display: flex;
     justify-content: space-around;
 
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+
     .contact-info-container,
     .opening-times-container {
       padding: 2rem;
