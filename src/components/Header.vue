@@ -2,32 +2,35 @@
   <header id="header" :class="smallerHeaderClass">
     <div class="centering-container">
       <router-link to="/"><img src="../assets/images/logo.png" /></router-link>
-      <nav>
-        <div
-          class="link"
-          :class="{ 'router-link-exact-active': $route.path === '/' }"
-        >
-          <router-link to="/">Home</router-link>
-        </div>
-        <div
-          class="link"
-          :class="{ 'router-link-exact-active': $route.path === '/menu' }"
-        >
-          <router-link to="/menu">Menu</router-link>
-        </div>
-        <div
-          class="link"
-          :class="{ 'router-link-exact-active': $route.path === '/delivery' }"
-        >
-          <router-link to="/delivery">Delivery</router-link>
-        </div>
-        <div
-          class="link"
-          :class="{ 'router-link-exact-active': $route.path === '/about' }"
-        >
-          <router-link to="/about">About</router-link>
-        </div>
-      </nav>
+      <div class="menus-container">
+        <nav class="full">
+          <div
+            class="link"
+            :class="{ 'router-link-exact-active': $route.path === '/' }"
+          >
+            <router-link to="/">Home</router-link>
+          </div>
+          <div
+            class="link"
+            :class="{ 'router-link-exact-active': $route.path === '/menu' }"
+          >
+            <router-link to="/menu">Menu</router-link>
+          </div>
+          <div
+            class="link"
+            :class="{ 'router-link-exact-active': $route.path === '/delivery' }"
+          >
+            <router-link to="/delivery">Delivery</router-link>
+          </div>
+          <div
+            class="link"
+            :class="{ 'router-link-exact-active': $route.path === '/about' }"
+          >
+            <router-link to="/about">About</router-link>
+          </div>
+        </nav>
+        <div class="hamburger-menu"></div>
+      </div>
     </div>
   </header>
 </template>
@@ -79,6 +82,10 @@ export default {
           margin-top: 0;
         }
       }
+
+      .hamburger-menu {
+        animation: smaller-header-animation-hamburger 0.5s ease-in-out forwards;
+      }
     }
   }
 
@@ -93,6 +100,10 @@ export default {
         animation: normal-header-animation-link 0.5s ease-in-out forwards;
       }
     }
+
+    .hamburger-menu {
+      animation: normal-header-animation-hamburger 0.5s ease-in-out forwards;
+    }
   }
 
   .centering-container {
@@ -104,8 +115,14 @@ export default {
       width: 15rem;
     }
 
-    nav {
+    nav.full {
       display: flex;
+
+      @media (max-width: 800px) {
+        opacity: 0;
+        width: 0;
+        z-index: -1;
+      }
 
       .link {
         padding: 1rem 0.5rem;
@@ -138,7 +155,24 @@ export default {
         }
       }
     }
+
+    .hamburger-menu {
+      background-color: blue;
+      height: 60px;
+      width: 60px;
+
+      @media (min-width: 799px) {
+        opacity: 0;
+        width: 0;
+        z-index: -1;
+      }
+    }
   }
+}
+
+.menus-container {
+  display: flex;
+  align-items: center;
 }
 
 @keyframes link-underline {
@@ -316,6 +350,60 @@ export default {
   100% {
     transform: translateY(0);
     @include normal-header-styles-link;
+  }
+}
+
+@mixin smaller-header-styles-hamburger {
+  height: 30px;
+  width: 30px;
+}
+
+@mixin normal-header-styles-hamburger {
+  height: 60px;
+  width: 60px;
+}
+
+@keyframes smaller-header-animation-hamburger {
+  0% {
+    @include normal-header-styles-hamburger;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles-hamburger;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles-hamburger;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles-hamburger;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles-hamburger;
+  }
+}
+
+@keyframes normal-header-animation-hamburger {
+  0% {
+    @include smaller-header-styles-hamburger;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles-hamburger;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles-hamburger;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles-hamburger;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles-hamburger;
   }
 }
 </style>
