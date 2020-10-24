@@ -131,7 +131,7 @@ export default {
           margin: 2px;
         }
         .hidden-checkbox:checked ~ .smaller-nav-container {
-          height: 9rem;
+          height: 8.5rem;
         }
       }
     }
@@ -177,8 +177,12 @@ export default {
       &.small {
         flex-direction: column;
 
-        & > .link.router-link-exact-active::after {
-          content: none;
+        & > .link.router-link-exact-active {
+          background-color: rgba(#1f0f0f, 0.05);
+
+          &::after {
+            content: none;
+          }
         }
       }
 
@@ -277,7 +281,7 @@ export default {
 
         &:checked {
           & ~ .smaller-nav-container {
-            height: 17rem;
+            height: 16.5rem;
             border-width: 2px;
           }
           & + .hamburger-icon {
