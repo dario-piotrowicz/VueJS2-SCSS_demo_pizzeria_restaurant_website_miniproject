@@ -36,7 +36,38 @@
             <div class="line" />
             <div class="line" />
           </div>
-          <div class="smaller-nav-container"></div>
+          <div class="smaller-nav-container">
+            <nav class="small">
+              <div
+                class="link"
+                :class="{ 'router-link-exact-active': $route.path === '/' }"
+              >
+                <router-link to="/">Home</router-link>
+              </div>
+              <div
+                class="link"
+                :class="{ 'router-link-exact-active': $route.path === '/menu' }"
+              >
+                <router-link to="/menu">Menu</router-link>
+              </div>
+              <div
+                class="link"
+                :class="{
+                  'router-link-exact-active': $route.path === '/delivery',
+                }"
+              >
+                <router-link to="/delivery">Delivery</router-link>
+              </div>
+              <div
+                class="link"
+                :class="{
+                  'router-link-exact-active': $route.path === '/about',
+                }"
+              >
+                <router-link to="/about">About</router-link>
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
     </div>
@@ -99,6 +130,9 @@ export default {
           height: 3px;
           margin: 2px;
         }
+        .hidden-checkbox:checked ~ .smaller-nav-container {
+          height: 9rem;
+        }
       }
     }
   }
@@ -129,13 +163,23 @@ export default {
       width: 15rem;
     }
 
-    nav.full {
+    nav {
       display: flex;
 
-      @media (max-width: 800px) {
-        opacity: 0;
-        width: 0;
-        z-index: -1;
+      &.full {
+        @media (max-width: 800px) {
+          opacity: 0;
+          width: 0;
+          z-index: -1;
+        }
+      }
+
+      &.small {
+        flex-direction: column;
+
+        & > .link.router-link-exact-active::after {
+          content: none;
+        }
       }
 
       .link {
@@ -208,6 +252,18 @@ export default {
         background-color: rgb(223, 91, 4);
       }
 
+      .smaller-nav-container {
+        height: 0;
+        border-radius: 5px;
+        border: 0px solid rgb(70, 22, 22);
+        background-color: #f4f4f4;
+        position: absolute;
+        top: 80%;
+        right: 2px;
+        margin-top: 10px;
+        transition: height 0.5s, border-width 0.3s;
+        overflow: hidden;
+      }
       .hidden-checkbox {
         position: absolute;
         top: 0;
@@ -221,14 +277,8 @@ export default {
 
         &:checked {
           & ~ .smaller-nav-container {
-            height: 400px;
-            width: 150px;
-            border: 1px solid green;
-            background-color: red;
-            position: absolute;
-            top: 100%;
-            right: 2px;
-            margin-top: 10px;
+            height: 17rem;
+            border-width: 2px;
           }
           & + .hamburger-icon {
             .line {
