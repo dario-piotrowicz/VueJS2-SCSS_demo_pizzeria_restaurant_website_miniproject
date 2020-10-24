@@ -29,7 +29,15 @@
             <router-link to="/about">About</router-link>
           </div>
         </nav>
-        <div class="hamburger-menu"></div>
+        <div class="hamburger-menu">
+          <input type="checkbox" class="hidden-checkbox" />
+          <div class="hamburger-icon">
+            <div class="line" />
+            <div class="line" />
+            <div class="line" />
+          </div>
+          <div class="smaller-nav-container"></div>
+        </div>
       </div>
     </div>
   </header>
@@ -85,6 +93,12 @@ export default {
 
       .hamburger-menu {
         animation: smaller-header-animation-hamburger 0.5s ease-in-out forwards;
+
+        .hamburger-icon .line {
+          width: 70%;
+          height: 3px;
+          margin: 2px;
+        }
       }
     }
   }
@@ -157,14 +171,83 @@ export default {
     }
 
     .hamburger-menu {
-      background-color: blue;
+      position: relative;
       height: 60px;
       width: 60px;
+      padding: 10px;
+      box-sizing: border-box;
 
       @media (min-width: 799px) {
         opacity: 0;
         width: 0;
         z-index: -1;
+      }
+
+      .hamburger-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+
+        .line {
+          width: 70%;
+          height: 5px;
+          background-color: #461616;
+          margin: 3px;
+          border-radius: 10px;
+          transition: 0.5s;
+        }
+      }
+      &:hover .hamburger-icon .line {
+        background-color: rgb(223, 91, 4);
+      }
+
+      .hidden-checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        opacity: 0;
+        z-index: 2;
+        cursor: pointer;
+
+        &:checked {
+          & ~ .smaller-nav-container {
+            height: 400px;
+            width: 150px;
+            border: 1px solid green;
+            background-color: red;
+            position: absolute;
+            top: 100%;
+            right: 2px;
+            margin-top: 10px;
+          }
+          & + .hamburger-icon {
+            .line {
+              &:not(:first-child):not(:last-child) {
+                width: 0;
+              }
+              &:first-child {
+                display: block;
+                transform: translate(-30%, 355%) rotate(45deg);
+                width: 50%;
+              }
+              &:last-child {
+                display: block;
+                transform: translate(30%, -102%) rotate(-45deg);
+                width: 50%;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -173,6 +256,10 @@ export default {
 .menus-container {
   display: flex;
   align-items: center;
+
+  @media (min-width: 799px) {
+    flex-direction: row-reverse;
+  }
 }
 
 @keyframes link-underline {
@@ -359,8 +446,8 @@ export default {
 }
 
 @mixin normal-header-styles-hamburger {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
 }
 
 @keyframes smaller-header-animation-hamburger {
