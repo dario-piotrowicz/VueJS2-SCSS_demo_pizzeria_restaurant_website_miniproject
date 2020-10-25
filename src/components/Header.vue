@@ -272,7 +272,7 @@ export default {
         border: 0px solid rgb(70, 22, 22);
         background-color: #f4f4f4;
         position: absolute;
-        top: 80%;
+        top: 60%;
         right: 2px;
         margin-top: 10px;
         transition: height 0.5s, border-width 0.3s;
@@ -301,12 +301,12 @@ export default {
               }
               &:first-child {
                 display: block;
-                transform: translate(-30%, 355%) rotate(45deg);
+                transform: translate(-30%, 200%) rotate(45deg);
                 width: 50%;
               }
               &:last-child {
                 display: block;
-                transform: translate(30%, -102%) rotate(-45deg);
+                transform: translate(30%, -252%) rotate(-45deg);
                 width: 50%;
               }
             }
