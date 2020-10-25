@@ -298,6 +298,7 @@ export default {
             .line {
               &:not(:first-child):not(:last-child) {
                 width: 0;
+                opacity: 0;
               }
               &:first-child {
                 display: block;
