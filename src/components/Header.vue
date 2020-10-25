@@ -30,7 +30,11 @@
           </div>
         </nav>
         <div class="hamburger-menu">
-          <input type="checkbox" class="hidden-checkbox" />
+          <input
+            type="checkbox"
+            class="hidden-checkbox"
+            v-model="hamburgerMenuOpen"
+          />
           <div class="hamburger-icon">
             <div class="line" />
             <div class="line" />
@@ -79,6 +83,7 @@ export default {
   data: function () {
     return {
       smallerHeaderClass: "",
+      hamburgerMenuOpen: false,
     };
   },
   created() {
@@ -95,6 +100,11 @@ export default {
       } else if (wasSmaller) {
         this.smallerHeaderClass = "normal-header";
       }
+    },
+  },
+  watch: {
+    $route: function () {
+      this.hamburgerMenuOpen = false;
     },
   },
 };
