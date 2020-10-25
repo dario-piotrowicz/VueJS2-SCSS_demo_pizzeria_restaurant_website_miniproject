@@ -14,8 +14,13 @@ export default new Vuex.Store({
     lunchOpeningHours: "11:00 - 16:00",
     dinnerOpeningHours: "19:00 - 23:30",
     daysOfWeekWhenClosed: ["tuesday"],
+    darkMode: false,
   },
-  mutations: {},
+  mutations: {
+    set_darkMode: function(state, value) {
+      state.darkMode = value;
+    },
+  },
   actions: {},
   modules: {},
 });

@@ -60,6 +60,9 @@ a {
 
 .page {
   background-color: #f4f4f4;
+  &.dark {
+    background-color: #000;
+  }
   padding: 2rem 0;
   &-title {
     padding-top: 2rem;

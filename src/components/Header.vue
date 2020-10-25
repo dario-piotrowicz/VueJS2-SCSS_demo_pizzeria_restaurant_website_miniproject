@@ -2,6 +2,7 @@
   <header id="header" :class="smallerHeaderClass">
     <div class="centering-container">
       <router-link to="/"><img src="../assets/images/logo.png" /></router-link>
+      <dark-mode-toggle />
       <div class="menus-container">
         <nav class="full">
           <div
@@ -79,12 +80,17 @@
 </template>
 
 <script>
+import DarkModeToggle from "./DarkModeToggle";
+
 export default {
   data: function () {
     return {
       smallerHeaderClass: "",
       hamburgerMenuOpen: false,
     };
+  },
+  components: {
+    "dark-mode-toggle": DarkModeToggle,
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);

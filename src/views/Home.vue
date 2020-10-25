@@ -1,5 +1,5 @@
 <template>
-  <div class="page" id="home">
+  <div :class="`page${darkMode ? ' dark' : ''}`" id="home">
     <hero>
       <div class="hero-content centering-container">
         <img src="../assets/images/logo.png" />
@@ -87,6 +87,7 @@ export default {
       "lunchOpeningHours",
       "dinnerOpeningHours",
       "daysOfWeekWhenClosed",
+      "darkMode",
     ]),
     closedOnText: function () {
       if (!this.daysOfWeekWhenClosed || this.daysOfWeekWhenClosed.length === 0)
