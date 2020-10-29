@@ -6,12 +6,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  backgroundSrc: "../assets/images/home-hero.jpg",
-};
-</script>
-
 <style lang="scss" scoped>
 .hero {
   position: relative;
