@@ -27,7 +27,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: transparentize(#fff, 0.2);
   border-radius: 10px;
 
   &.image-on-the-right {
