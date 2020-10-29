@@ -76,7 +76,7 @@ export default {
     "contact-info": ContactInfo,
   },
 };
-</script>>
+</script>
 
 <style lang="scss" scoped>
 .full-width-wrapper {

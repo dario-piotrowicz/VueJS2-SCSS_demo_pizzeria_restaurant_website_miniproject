@@ -15,7 +15,7 @@ export default {
     "font-awesome-icon": FontAwesomeIcon,
   },
 };
-</script>>
+</script>
 
 <style lang="scss" scoped>
 .contact-info {
@@ -38,4 +38,4 @@ export default {
     text-align: center;
   }
 }
-</style>>
+</style>

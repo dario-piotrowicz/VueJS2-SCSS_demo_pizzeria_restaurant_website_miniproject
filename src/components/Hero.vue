@@ -37,5 +37,5 @@ export default {
     left: 0;
     opacity: 0.8;
   }
-}</style
->>
+}
+</style>
