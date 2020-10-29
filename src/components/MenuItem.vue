@@ -22,6 +22,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/constants.scss";
+
 .menu-item {
   &-container {
     width: 15rem;
@@ -48,7 +50,7 @@ export default {
 
   .front,
   .back {
-    border: 2px solid rgb(70, 22, 22);
+    border: 2px solid $color-primary;
     border-radius: 10px;
     position: absolute;
     width: 100%;
@@ -89,7 +91,7 @@ img {
 
 .title {
   margin: 0 0 10px 0;
-  color: rgb(223, 91, 4);
+  color: $color-secondary;
 }
 
 .price {

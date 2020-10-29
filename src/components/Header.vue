@@ -117,6 +117,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/constants.scss";
+
 #header {
   background-color: #fff;
   box-shadow: 0px -6px 20px 3px;
@@ -212,23 +214,23 @@ export default {
             height: 2px;
             margin: auto;
             margin-top: 5px;
-            background-color: rgb(223, 91, 4);
+            background-color: $color-secondary;
             animation: link-underline 0.5s cubic-bezier(0, 0.8, 1, 0.85);
           }
           a {
-            color: rgb(223, 91, 4);
+            color: $color-secondary;
           }
         }
 
         a {
-          color: rgb(70, 22, 22);
+          color: $color-primary;
           margin: 1rem;
           font-size: 1.2rem;
           text-decoration: none;
           transition: 0.5s;
 
           &:hover {
-            color: rgb(223, 91, 4);
+            color: $color-secondary;
           }
         }
       }
@@ -269,13 +271,13 @@ export default {
         }
       }
       &:hover .hamburger-icon .line {
-        background-color: rgb(223, 91, 4);
+        background-color: $color-secondary;
       }
 
       .smaller-nav-container {
         height: 0;
         border-radius: 5px;
-        border: 0px solid rgb(70, 22, 22);
+        border: 0px solid $color-primary;
         background-color: #f4f4f4;
         position: absolute;
         top: 60%;

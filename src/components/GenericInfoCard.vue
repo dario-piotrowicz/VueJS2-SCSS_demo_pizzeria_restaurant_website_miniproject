@@ -21,6 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/constants.scss";
+
 .generic-info-card {
   display: flex;
   align-items: center;
@@ -48,7 +50,7 @@ export default {
     padding: 2rem;
     & > .title {
       margin-top: 0;
-      color: rgb(223, 91, 4);
+      color: $color-secondary;
     }
 
     & > .description {

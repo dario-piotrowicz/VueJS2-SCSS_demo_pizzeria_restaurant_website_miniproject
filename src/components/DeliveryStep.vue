@@ -20,13 +20,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/constants.scss";
+
 .delivery-step {
   display: flex;
   justify-content: center;
   align-items: center;
 
   & > .icon-container {
-    color: rgb(223, 91, 4);
+    color: $color-secondary;
     background-color: rgb(235, 209, 62);
     padding: 2rem;
     margin: 2rem;
@@ -35,7 +37,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 15px solid rgb(70, 22, 22);
+    border: 15px solid $color-primary;
     border-radius: 50%;
     font-size: 4rem;
   }

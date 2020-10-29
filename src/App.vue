@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/scss/constants.scss";
+
 body {
   margin: 0;
   font-family: "Source Sans Pro", sans-serif;
@@ -45,16 +47,16 @@ a {
 
 .btn {
   text-decoration: none;
-  color: rgb(223, 91, 4);
-  background-color: rgb(31, 15, 15);
+  color: $color-secondary;
+  background-color: $color-primary;
   display: inline-block;
   padding: 0.5rem;
   border-radius: 5px;
   transition: color 0.25s, background-color 0.25s;
 
   &:hover {
-    color: rgb(31, 15, 15);
-    background-color: rgb(223, 91, 4);
+    color: $color-primary;
+    background-color: $color-secondary;
   }
 }
 

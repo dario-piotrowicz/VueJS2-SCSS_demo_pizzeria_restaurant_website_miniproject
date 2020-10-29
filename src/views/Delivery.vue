@@ -57,6 +57,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/constants.scss";
+
 .intro-text,
 .delivery-step-content {
   font-size: 1.7rem;
@@ -68,10 +70,10 @@ export default {
 .delivery-step-content {
   a {
     text-decoration: none;
-    color: rgb(70, 22, 22);
+    color: $color-primary;
     transition: 0.5s;
     &:hover {
-      color: rgb(223, 91, 4);
+      color: $color-secondary;
     }
   }
 
@@ -89,7 +91,7 @@ export default {
     height: 10rem;
     width: 0.5rem;
     margin: 3rem auto;
-    background-color: rgb(70, 22, 22);
+    background-color: $color-primary;
     border-radius: 5px;
   }
 }
