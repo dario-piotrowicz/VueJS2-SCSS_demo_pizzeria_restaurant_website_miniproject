@@ -29,7 +29,7 @@ export default {
 
   & > .icon-container {
     color: $color-secondary;
-    background-color: rgb(235, 209, 62);
+    background-color: #ebd13e;
     padding: 2rem;
     margin: 2rem;
     width: 4rem;
