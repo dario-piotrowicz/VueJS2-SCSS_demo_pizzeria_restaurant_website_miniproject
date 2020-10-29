@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/scss/constants.scss";
+@import "./assets/scss/utilities.scss";
 
 body {
   margin: 0;
@@ -38,40 +38,6 @@ h5,
 h6,
 a {
   font-family: "Sriracha", cursive;
-}
-
-.centering-container {
-  max-width: 1100px;
-  margin: auto;
-}
-
-.btn {
-  text-decoration: none;
-  color: $color-secondary;
-  background-color: $color-primary;
-  display: inline-block;
-  padding: 0.5rem;
-  border-radius: 5px;
-  transition: color 0.25s, background-color 0.25s;
-
-  &:hover {
-    color: $color-primary;
-    background-color: $color-secondary;
-  }
-}
-
-.page {
-  background-color: #f4f4f4;
-  &.dark {
-    background-color: #000;
-  }
-  padding: 2rem 0;
-  &-title {
-    padding-top: 2rem;
-    margin: 0;
-    text-align: center;
-    font-size: 2.2rem;
-  }
 }
 
 #app-body {
