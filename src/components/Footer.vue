@@ -97,7 +97,7 @@ p {
 
     &:hover {
       transform: scale(1.2);
-      color: black;
+      color: #000;
     }
   }
 }

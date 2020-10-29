@@ -23,7 +23,7 @@ export default {
   align-items: center;
 
   .content {
-    color: white;
+    color: #fff;
     z-index: 1;
   }
 
