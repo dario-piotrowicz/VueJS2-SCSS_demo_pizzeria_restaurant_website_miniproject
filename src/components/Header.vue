@@ -1,5 +1,5 @@
 <template>
-  <header id="header" :class="smallerHeaderClass">
+  <header id="header" :class="headerClass">
     <div class="centering-container">
       <router-link to="/"><img src="../assets/images/logo.png" /></router-link>
       <dark-mode-toggle />
@@ -111,6 +111,15 @@ export default {
   watch: {
     $route: function () {
       this.hamburgerMenuOpen = false;
+    },
+  },
+  computed: {
+    headerClass: function () {
+      let resultClass = this.smallerHeaderClass;
+      if (this.$store.state.darkMode) {
+        resultClass += " dark-mode";
+      }
+      return resultClass;
     },
   },
 };
@@ -321,6 +330,48 @@ export default {
             }
           }
         }
+      }
+    }
+  }
+
+  &.dark-mode {
+    background-color: $dark-mode--neutral-background;
+    box-shadow: 0px -6px 20px 3px $dark-mode--color-primary;
+
+    .centering-container {
+      .link {
+        &.router-link-exact-active {
+          &::after {
+            background-color: $dark-mode--color-secondary;
+          }
+          a {
+            color: $dark-mode--color-secondary;
+          }
+        }
+        a {
+          color: $dark-mode--color-primary;
+
+          &:hover {
+            color: $dark-mode--color-secondary;
+          }
+        }
+      }
+
+      nav.small > .link.router-link-exact-active {
+        background-color: transparentize($dark-mode--color-primary, 0.9);
+      }
+
+      .hamburger-icon {
+        .line {
+          background-color: $dark-mode--color-primary;
+        }
+        &:hover .hamburger-icon .line {
+          background-color: $dark-mode--color-secondary;
+        }
+      }
+      .smaller-nav-container {
+        border-color: $dark-mode--color-primary;
+        background-color: $dark-mode--neutral-background;
       }
     }
   }
