@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-header />
-    <div id="app-body">
+    <div id="app-body" :class="darkMode ? 'dark-mode' : ''">
       <router-view />
     </div>
     <app-footer />
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import "./assets/fonts/fonts.css";
 import "./fontAwesomeSetup";
 import Header from "./components/Header";
@@ -18,6 +19,9 @@ export default {
   components: {
     "app-header": Header,
     "app-footer": Footer,
+  },
+  computed: {
+    ...mapState(["darkMode"]),
   },
 };
 </script>
@@ -42,5 +46,6 @@ a {
 
 #app-body {
   padding-top: 5rem;
+  background-color: $dark-mode--neutral-background;
 }
 </style>
