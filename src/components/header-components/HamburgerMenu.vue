@@ -237,14 +237,6 @@ nav.small {
 nav {
   display: flex;
 
-  &.full {
-    @media (max-width: 800px) {
-      opacity: 0;
-      width: 0;
-      z-index: -1;
-    }
-  }
-
   .link {
     padding: 1rem 0.5rem;
     &.router-link-exact-active {
