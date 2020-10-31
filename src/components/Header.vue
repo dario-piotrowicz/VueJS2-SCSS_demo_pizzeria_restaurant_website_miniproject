@@ -72,20 +72,16 @@ export default {
   &.smaller-header {
     animation: smaller-header-animation 0.5s ease-in-out forwards;
 
-    .centering-container {
-      img {
-        animation: smaller-header-animation-img 0.5s ease-in-out forwards;
-      }
+    .centering-container img {
+      animation: smaller-header-animation-img 0.5s ease-in-out forwards;
     }
   }
 
   &.normal-header {
     animation: normal-header-animation 0.5s ease-in-out forwards;
 
-    .centering-container {
-      img {
-        animation: normal-header-animation-img 0.5s ease-in-out forwards;
-      }
+    .centering-container img {
+      animation: normal-header-animation-img 0.5s ease-in-out forwards;
     }
   }
 
