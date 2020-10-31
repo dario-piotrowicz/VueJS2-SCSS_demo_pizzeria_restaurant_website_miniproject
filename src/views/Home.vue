@@ -1,5 +1,5 @@
 <template>
-  <div :class="`page${darkMode ? ' dark' : ''}`" id="home">
+  <div :class="`page${darkMode ? ' dark-mode' : ''}`" id="home">
     <hero>
       <div class="hero-content centering-container">
         <img src="../assets/images/logo.png" />
