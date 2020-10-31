@@ -1,5 +1,5 @@
 <template>
-  <div class="page" id="menu">
+  <div id="menu" class="page" :class="darkMode ? 'dark-mode' : ''">
     <div class="centering-container">
       <h1 class="page-title">Menu</h1>
       <menu-section
@@ -21,7 +21,7 @@ export default {
     "menu-section": MenuSection,
   },
   computed: {
-    ...mapState(["menuSections"]),
+    ...mapState(["darkMode", "menuSections"]),
   },
 };
 </script>

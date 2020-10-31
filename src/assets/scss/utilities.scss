@@ -22,11 +22,16 @@
 
 .page {
   background-color: #f4f4f4;
+
   &.dark-mode {
     background-color: $dark-mode--neutral-background;
+    .page-title {
+      color: $dark-mode--color-primary;
+    }
   }
+
   padding: 2rem 0;
-  &-title {
+  .page-title {
     padding-top: 2rem;
     margin: 0;
     text-align: center;
