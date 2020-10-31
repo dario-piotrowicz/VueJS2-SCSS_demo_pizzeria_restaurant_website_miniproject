@@ -1,0 +1,31 @@
+@import "./keyframe-animations.scss";
+
+@mixin smallerMenuLink {
+  .link {
+    padding: 0;
+    animation: smaller-header-animation-link 0.5s ease-in-out forwards;
+    &.router-link-exact-active::after {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin darkModeLinksColors {
+  .link {
+    &.router-link-exact-active {
+      &::after {
+        background-color: $dark-mode--color-secondary;
+      }
+      a {
+        color: $dark-mode--color-secondary;
+      }
+    }
+    a {
+      color: $dark-mode--color-primary;
+
+      &:hover {
+        color: $dark-mode--color-secondary;
+      }
+    }
+  }
+}

@@ -83,6 +83,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/constants.scss";
+@import "./header-components/shared-styles.scss";
 
 #header {
   background-color: #fff;
@@ -98,12 +99,7 @@ export default {
       img {
         animation: smaller-header-animation-img 0.5s ease-in-out forwards;
       }
-      .link {
-        animation: smaller-header-animation-link 0.5s ease-in-out forwards;
-        &.router-link-exact-active::after {
-          margin-top: 0;
-        }
-      }
+      @include smallerMenuLink();
     }
   }
 
@@ -178,23 +174,7 @@ export default {
     box-shadow: 0px -6px 20px 3px $dark-mode--color-primary;
 
     .centering-container {
-      .link {
-        &.router-link-exact-active {
-          &::after {
-            background-color: $dark-mode--color-secondary;
-          }
-          a {
-            color: $dark-mode--color-secondary;
-          }
-        }
-        a {
-          color: $dark-mode--color-primary;
-
-          &:hover {
-            color: $dark-mode--color-secondary;
-          }
-        }
-      }
+      @include darkModeLinksColors();
     }
   }
 }
@@ -205,184 +185,6 @@ export default {
 
   @media (min-width: 799px) {
     flex-direction: row-reverse;
-  }
-}
-
-@keyframes link-underline {
-  0% {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  30% {
-    opacity: 1;
-  }
-  70% {
-    transform: translateY(-5px);
-  }
-  80% {
-    transform: translateY(2px);
-  }
-  90% {
-    transform: translateY(-2px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@mixin smaller-header-styles {
-  opacity: 0.75;
-}
-
-@mixin normal-header-styles {
-  opacity: 1;
-}
-
-@keyframes smaller-header-animation {
-  0% {
-    @include normal-header-styles;
-    transform: translateY(0px);
-  }
-  45% {
-    @include normal-header-styles;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include smaller-header-styles;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include smaller-header-styles;
-  }
-  100% {
-    transform: translateY(0);
-    @include smaller-header-styles;
-  }
-}
-
-@keyframes normal-header-animation {
-  0% {
-    @include smaller-header-styles;
-    transform: translateY(0px);
-  }
-  45% {
-    @include smaller-header-styles;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include normal-header-styles;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include normal-header-styles;
-  }
-  100% {
-    transform: translateY(0);
-    @include normal-header-styles;
-  }
-}
-
-@mixin smaller-header-styles-img {
-  width: 11rem;
-}
-
-@mixin normal-header-styles-img {
-  width: 15rem;
-}
-
-@keyframes smaller-header-animation-img {
-  0% {
-    @include normal-header-styles-img;
-    transform: translateY(0px);
-  }
-  45% {
-    @include normal-header-styles-img;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include smaller-header-styles-img;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include smaller-header-styles-img;
-  }
-  100% {
-    transform: translateY(0);
-    @include smaller-header-styles-img;
-  }
-}
-
-@keyframes normal-header-animation-img {
-  0% {
-    @include smaller-header-styles-img;
-    transform: translateY(0px);
-  }
-  45% {
-    @include smaller-header-styles-img;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include normal-header-styles-img;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include normal-header-styles-img;
-  }
-  100% {
-    transform: translateY(0);
-    @include normal-header-styles-img;
-  }
-}
-
-@mixin smaller-header-styles-link {
-  padding: 0;
-}
-
-@mixin normal-header-styles-link {
-  padding: 1rem 0.5rem;
-}
-
-@keyframes smaller-header-animation-link {
-  0% {
-    @include normal-header-styles-link;
-    transform: translateY(0px);
-  }
-  45% {
-    @include normal-header-styles-link;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include smaller-header-styles-link;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include smaller-header-styles-link;
-  }
-  100% {
-    transform: translateY(0);
-    @include smaller-header-styles-link;
-  }
-}
-
-@keyframes normal-header-animation-link {
-  0% {
-    @include smaller-header-styles-link;
-    transform: translateY(0px);
-  }
-  45% {
-    @include smaller-header-styles-link;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include normal-header-styles-link;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include normal-header-styles-link;
-  }
-  100% {
-    transform: translateY(0);
-    @include normal-header-styles-link;
   }
 }
 </style>

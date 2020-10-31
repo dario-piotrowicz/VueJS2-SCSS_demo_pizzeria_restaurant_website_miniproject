@@ -86,6 +86,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/scss/constants.scss";
+@import "./shared-styles.scss";
 
 .hamburger-menu {
   position: relative;
@@ -122,13 +123,7 @@ export default {
     .hidden-checkbox:checked ~ .smaller-nav-container {
       height: 8.5rem;
     }
-    .link {
-      padding: 0;
-      animation: smaller-header-animation-link 0.5s ease-in-out forwards;
-      &.router-link-exact-active::after {
-        margin-top: 0;
-      }
-    }
+    @include smallerMenuLink();
   }
 
   &.dark-mode {
@@ -140,23 +135,7 @@ export default {
       }
     }
 
-    .link {
-      &.router-link-exact-active {
-        &::after {
-          background-color: $dark-mode--color-secondary;
-        }
-        a {
-          color: $dark-mode--color-secondary;
-        }
-      }
-      a {
-        color: $dark-mode--color-primary;
-
-        &:hover {
-          color: $dark-mode--color-secondary;
-        }
-      }
-    }
+    @include darkModeLinksColors();
 
     .hamburger-icon {
       .line {
@@ -295,112 +274,6 @@ nav {
         color: $color-secondary;
       }
     }
-  }
-}
-
-@mixin smaller-header-styles-hamburger {
-  height: 30px;
-  width: 30px;
-}
-
-@mixin normal-header-styles-hamburger {
-  height: 50px;
-  width: 50px;
-}
-
-@keyframes smaller-header-animation-hamburger {
-  0% {
-    @include normal-header-styles-hamburger;
-    transform: translateY(0px);
-  }
-  45% {
-    @include normal-header-styles-hamburger;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include smaller-header-styles-hamburger;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include smaller-header-styles-hamburger;
-  }
-  100% {
-    transform: translateY(0);
-    @include smaller-header-styles-hamburger;
-  }
-}
-
-@keyframes normal-header-animation-hamburger {
-  0% {
-    @include smaller-header-styles-hamburger;
-    transform: translateY(0px);
-  }
-  45% {
-    @include smaller-header-styles-hamburger;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include normal-header-styles-hamburger;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include normal-header-styles-hamburger;
-  }
-  100% {
-    transform: translateY(0);
-    @include normal-header-styles-hamburger;
-  }
-}
-
-@mixin smaller-header-styles-link {
-  padding: 0;
-}
-
-@mixin normal-header-styles-link {
-  padding: 1rem 0.5rem;
-}
-
-@keyframes smaller-header-animation-link {
-  0% {
-    @include normal-header-styles-link;
-    transform: translateY(0px);
-  }
-  45% {
-    @include normal-header-styles-link;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include smaller-header-styles-link;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include smaller-header-styles-link;
-  }
-  100% {
-    transform: translateY(0);
-    @include smaller-header-styles-link;
-  }
-}
-
-@keyframes normal-header-animation-link {
-  0% {
-    @include smaller-header-styles-link;
-    transform: translateY(0px);
-  }
-  45% {
-    @include smaller-header-styles-link;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include normal-header-styles-link;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include normal-header-styles-link;
-  }
-  100% {
-    transform: translateY(0);
-    @include normal-header-styles-link;
   }
 }
 </style>
