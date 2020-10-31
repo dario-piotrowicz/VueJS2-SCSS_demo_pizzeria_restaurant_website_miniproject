@@ -97,13 +97,7 @@ export default {
 
   &.normal-menu {
     animation: normal-header-animation-hamburger 0.5s ease-in-out forwards;
-    .link {
-      padding: 0;
-      animation: normal-header-animation-link 0.5s ease-in-out forwards;
-      &.router-link-exact-active::after {
-        margin-top: 0;
-      }
-    }
+    @include normalMenuLink();
   }
 
   @media (min-width: 799px) {

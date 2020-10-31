@@ -4,32 +4,7 @@
       <router-link to="/"><img src="../assets/images/logo.png" /></router-link>
       <dark-mode-toggle />
       <div class="menus-container">
-        <nav class="full">
-          <div
-            class="link"
-            :class="{ 'router-link-exact-active': $route.path === '/' }"
-          >
-            <router-link to="/">Home</router-link>
-          </div>
-          <div
-            class="link"
-            :class="{ 'router-link-exact-active': $route.path === '/menu' }"
-          >
-            <router-link to="/menu">Menu</router-link>
-          </div>
-          <div
-            class="link"
-            :class="{ 'router-link-exact-active': $route.path === '/delivery' }"
-          >
-            <router-link to="/delivery">Delivery</router-link>
-          </div>
-          <div
-            class="link"
-            :class="{ 'router-link-exact-active': $route.path === '/about' }"
-          >
-            <router-link to="/about">About</router-link>
-          </div>
-        </nav>
+        <full-nav-menu :smallerMenu="smallerHeader"></full-nav-menu>
         <hamburger-menu :smallerMenu="smallerHeader"></hamburger-menu>
       </div>
     </div>
@@ -38,6 +13,7 @@
 
 <script>
 import DarkModeToggle from "./header-components/DarkModeToggle";
+import FullNavMenu from "./header-components/FullNavMenu";
 import HamburgerMenu from "./header-components/HamburgerMenu";
 
 export default {
@@ -49,6 +25,7 @@ export default {
   },
   components: {
     "dark-mode-toggle": DarkModeToggle,
+    "full-nav-menu": FullNavMenu,
     "hamburger-menu": HamburgerMenu,
   },
   created() {
@@ -99,7 +76,6 @@ export default {
       img {
         animation: smaller-header-animation-img 0.5s ease-in-out forwards;
       }
-      @include smallerMenuLink();
     }
   }
 
@@ -109,9 +85,6 @@ export default {
     .centering-container {
       img {
         animation: normal-header-animation-img 0.5s ease-in-out forwards;
-      }
-      .link {
-        animation: normal-header-animation-link 0.5s ease-in-out forwards;
       }
     }
   }
@@ -123,49 +96,6 @@ export default {
     padding: 0.5rem;
     img {
       width: 15rem;
-    }
-
-    nav {
-      display: flex;
-
-      &.full {
-        @media (max-width: 800px) {
-          opacity: 0;
-          width: 0;
-          z-index: -1;
-        }
-      }
-
-      .link {
-        padding: 1rem 0.5rem;
-        &.router-link-exact-active {
-          &::after {
-            content: "";
-            display: block;
-            width: 80%;
-            height: 2px;
-            margin: auto;
-            margin-top: 5px;
-            background-color: $color-secondary;
-            animation: link-underline 0.5s cubic-bezier(0, 0.8, 1, 0.85);
-          }
-          a {
-            color: $color-secondary;
-          }
-        }
-
-        a {
-          color: $color-primary;
-          margin: 1rem;
-          font-size: 1.2rem;
-          text-decoration: none;
-          transition: 0.5s;
-
-          &:hover {
-            color: $color-secondary;
-          }
-        }
-      }
     }
   }
 

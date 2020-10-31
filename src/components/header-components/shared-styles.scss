@@ -2,11 +2,16 @@
 
 @mixin smallerMenuLink {
   .link {
-    padding: 0;
     animation: smaller-header-animation-link 0.5s ease-in-out forwards;
     &.router-link-exact-active::after {
       margin-top: 0;
     }
+  }
+}
+
+@mixin normalMenuLink {
+  .link {
+    animation: normal-header-animation-link 0.5s ease-in-out forwards;
   }
 }
 
