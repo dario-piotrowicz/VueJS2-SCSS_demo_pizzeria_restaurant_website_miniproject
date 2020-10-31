@@ -135,9 +135,6 @@ export default {
       .line {
         background-color: $dark-mode--color-primary;
       }
-      &:hover .hamburger-icon .line {
-        background-color: $dark-mode--color-secondary;
-      }
     }
   }
 }
@@ -162,9 +159,6 @@ export default {
     border-radius: 10px;
     transition: 0.5s;
   }
-}
-.hamburger-menu:hover .hamburger-icon .line {
-  background-color: $color-secondary;
 }
 
 .smaller-nav-container {
@@ -212,6 +206,18 @@ export default {
           width: 50%;
         }
       }
+    }
+  }
+}
+
+.hamburger-menu {
+  .hidden-checkbox:hover ~ .hamburger-icon .line {
+    background-color: $color-secondary;
+  }
+
+  &.dark-mode {
+    .hidden-checkbox:hover ~ .hamburger-icon .line {
+      background-color: $dark-mode--color-secondary;
     }
   }
 }
