@@ -30,67 +30,26 @@
             <router-link to="/about">About</router-link>
           </div>
         </nav>
-        <div class="hamburger-menu">
-          <input
-            type="checkbox"
-            class="hidden-checkbox"
-            v-model="hamburgerMenuOpen"
-          />
-          <div class="hamburger-icon">
-            <div class="line" />
-            <div class="line" />
-            <div class="line" />
-          </div>
-          <div class="smaller-nav-container">
-            <nav class="small">
-              <div
-                class="link"
-                :class="{ 'router-link-exact-active': $route.path === '/' }"
-              >
-                <router-link to="/">Home</router-link>
-              </div>
-              <div
-                class="link"
-                :class="{ 'router-link-exact-active': $route.path === '/menu' }"
-              >
-                <router-link to="/menu">Menu</router-link>
-              </div>
-              <div
-                class="link"
-                :class="{
-                  'router-link-exact-active': $route.path === '/delivery',
-                }"
-              >
-                <router-link to="/delivery">Delivery</router-link>
-              </div>
-              <div
-                class="link"
-                :class="{
-                  'router-link-exact-active': $route.path === '/about',
-                }"
-              >
-                <router-link to="/about">About</router-link>
-              </div>
-            </nav>
-          </div>
-        </div>
+        <hamburger-menu :smallerMenu="smallerHeader"></hamburger-menu>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import DarkModeToggle from "./DarkModeToggle";
+import DarkModeToggle from "./header-components/DarkModeToggle";
+import HamburgerMenu from "./header-components/HamburgerMenu";
 
 export default {
   data: function () {
     return {
+      smallerHeader: false,
       smallerHeaderClass: "",
-      hamburgerMenuOpen: false,
     };
   },
   components: {
     "dark-mode-toggle": DarkModeToggle,
+    "hamburger-menu": HamburgerMenu,
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
@@ -100,17 +59,14 @@ export default {
   },
   methods: {
     handleScroll() {
-      const wasSmaller = this.smallerHeaderClass === "smaller-header";
+      const wasSmaller = this.smallerHeader;
       if (window.scrollY > 200) {
+        this.smallerHeader = true;
         this.smallerHeaderClass = "smaller-header";
       } else if (wasSmaller) {
+        this.smallerHeader = false;
         this.smallerHeaderClass = "normal-header";
       }
-    },
-  },
-  watch: {
-    $route: function () {
-      this.hamburgerMenuOpen = false;
     },
   },
   computed: {
@@ -148,19 +104,6 @@ export default {
           margin-top: 0;
         }
       }
-
-      .hamburger-menu {
-        animation: smaller-header-animation-hamburger 0.5s ease-in-out forwards;
-
-        .hamburger-icon .line {
-          width: 70%;
-          height: 3px;
-          margin: 2px;
-        }
-        .hidden-checkbox:checked ~ .smaller-nav-container {
-          height: 8.5rem;
-        }
-      }
     }
   }
 
@@ -174,10 +117,6 @@ export default {
       .link {
         animation: normal-header-animation-link 0.5s ease-in-out forwards;
       }
-    }
-
-    .hamburger-menu {
-      animation: normal-header-animation-hamburger 0.5s ease-in-out forwards;
     }
   }
 
@@ -198,18 +137,6 @@ export default {
           opacity: 0;
           width: 0;
           z-index: -1;
-        }
-      }
-
-      &.small {
-        flex-direction: column;
-
-        & > .link.router-link-exact-active {
-          background-color: rgba(#1f0f0f, 0.05);
-
-          &::after {
-            content: none;
-          }
         }
       }
 
@@ -244,94 +171,6 @@ export default {
         }
       }
     }
-
-    .hamburger-menu {
-      position: relative;
-      height: 60px;
-      width: 60px;
-      padding: 10px;
-      box-sizing: border-box;
-
-      @media (min-width: 799px) {
-        opacity: 0;
-        width: 0;
-        z-index: -1;
-      }
-
-      .hamburger-icon {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 0;
-
-        .line {
-          width: 70%;
-          height: 5px;
-          background-color: #461616;
-          margin: 3px;
-          border-radius: 10px;
-          transition: 0.5s;
-        }
-      }
-      &:hover .hamburger-icon .line {
-        background-color: $color-secondary;
-      }
-
-      .smaller-nav-container {
-        height: 0;
-        border-radius: 5px;
-        border: 0px solid $color-primary;
-        background-color: #f4f4f4;
-        position: absolute;
-        top: 60%;
-        right: 2px;
-        margin-top: 10px;
-        transition: height 0.5s, border-width 0.3s;
-        overflow: hidden;
-      }
-      .hidden-checkbox {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        opacity: 0;
-        z-index: 2;
-        cursor: pointer;
-
-        &:checked {
-          & ~ .smaller-nav-container {
-            height: 16.5rem;
-            border-width: 2px;
-          }
-          & + .hamburger-icon {
-            .line {
-              &:not(:first-child):not(:last-child) {
-                width: 0;
-                opacity: 0;
-              }
-              &:first-child {
-                display: block;
-                transform: translate(-30%, 200%) rotate(45deg);
-                width: 50%;
-              }
-              &:last-child {
-                display: block;
-                transform: translate(30%, -252%) rotate(-45deg);
-                width: 50%;
-              }
-            }
-          }
-        }
-      }
-    }
   }
 
   &.dark-mode {
@@ -355,23 +194,6 @@ export default {
             color: $dark-mode--color-secondary;
           }
         }
-      }
-
-      nav.small > .link.router-link-exact-active {
-        background-color: transparentize($dark-mode--color-primary, 0.9);
-      }
-
-      .hamburger-icon {
-        .line {
-          background-color: $dark-mode--color-primary;
-        }
-        &:hover .hamburger-icon .line {
-          background-color: $dark-mode--color-secondary;
-        }
-      }
-      .smaller-nav-container {
-        border-color: $dark-mode--color-primary;
-        background-color: $dark-mode--neutral-background;
       }
     }
   }
@@ -561,60 +383,6 @@ export default {
   100% {
     transform: translateY(0);
     @include normal-header-styles-link;
-  }
-}
-
-@mixin smaller-header-styles-hamburger {
-  height: 30px;
-  width: 30px;
-}
-
-@mixin normal-header-styles-hamburger {
-  height: 50px;
-  width: 50px;
-}
-
-@keyframes smaller-header-animation-hamburger {
-  0% {
-    @include normal-header-styles-hamburger;
-    transform: translateY(0px);
-  }
-  45% {
-    @include normal-header-styles-hamburger;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include smaller-header-styles-hamburger;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include smaller-header-styles-hamburger;
-  }
-  100% {
-    transform: translateY(0);
-    @include smaller-header-styles-hamburger;
-  }
-}
-
-@keyframes normal-header-animation-hamburger {
-  0% {
-    @include smaller-header-styles-hamburger;
-    transform: translateY(0px);
-  }
-  45% {
-    @include smaller-header-styles-hamburger;
-    transform: translateY(-10rem);
-  }
-  50% {
-    @include normal-header-styles-hamburger;
-  }
-  55% {
-    transform: translateY(-10rem);
-    @include normal-header-styles-hamburger;
-  }
-  100% {
-    transform: translateY(0);
-    @include normal-header-styles-hamburger;
   }
 }
 </style>
