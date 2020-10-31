@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer">
+  <footer id="footer" :class="darkMode ? 'dark-mode' : ''">
     <img src="../assets/images/logo.png" />
     <p class="location">{{ location }}</p>
     <p class="contact">{{ phoneNumber }} | {{ email }}</p>
@@ -32,7 +32,7 @@ export default {
     "font-awesome-icon": FontAwesomeIcon,
   },
   computed: {
-    ...mapState(["location", "phoneNumber", "email"]),
+    ...mapState(["darkMode", "location", "phoneNumber", "email"]),
   },
   methods: {
     alertNoSocialImplemented: () => {
@@ -45,6 +45,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/constants.scss";
+
 #footer {
   background-color: #fff;
   box-shadow: 0px 6px 20px 3px;
@@ -53,6 +55,34 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 2.5rem;
+
+  &.dark-mode {
+    background-color: $dark-mode--neutral-background;
+    box-shadow: 0px 6px 20px 3px $dark-mode--color-primary;
+    color: $dark-mode--color-primary;
+
+    .social-media {
+      display: flex;
+
+      & > .icon {
+        color: #000;
+
+        &.facebook {
+          background-color: #3b5998;
+        }
+        &.tripadvisor {
+          background-color: #00af87;
+        }
+        &.github {
+          background-color: #797979;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 
 img {
