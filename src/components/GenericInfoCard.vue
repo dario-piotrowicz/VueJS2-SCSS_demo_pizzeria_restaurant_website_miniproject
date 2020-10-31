@@ -1,7 +1,10 @@
 <template>
   <div
     class="generic-info-card centering-container"
-    :class="{ 'image-on-the-right': !!imageOnTheRight }"
+    :class="{
+      'image-on-the-right': !!imageOnTheRight,
+      'dark-mode': !!darkMode,
+    }"
   >
     <img :src="imageSrc" />
     <section class="content">
@@ -15,8 +18,13 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   props: ["imageSrc", "title", "description", "imageOnTheRight"],
+  computed: {
+    ...mapState(["darkMode"]),
+  },
 };
 </script>
 
@@ -29,6 +37,18 @@ export default {
   padding: 2rem;
   background-color: transparentize(#fff, 0.2);
   border-radius: 10px;
+
+  &.dark-mode {
+    background-color: transparentize(#000, 0.1);
+    color: $dark-mode--color-primary;
+    border: 1px solid transparentize($dark-mode--color-primary, 0.5);
+
+    & > .content {
+      & > .title {
+        color: $dark-mode--color-secondary;
+      }
+    }
+  }
 
   &.image-on-the-right {
     flex-direction: row-reverse;
