@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-item-container">
+  <div class="menu-item-container" :class="darkMode ? 'dark-mode' : ''">
     <div class="menu-item">
       <div class="front">
         <h3 class="title">{{ name }}</h3>
@@ -16,8 +16,13 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   props: ["name", "imageSrc", "price", "description"],
+  computed: {
+    ...mapState(["darkMode"]),
+  },
 };
 </script>
 
@@ -56,7 +61,7 @@ export default {
     width: 100%;
     height: 100%;
     background: url("../assets/images/paper-background.jpg") no-repeat bottom
-      center/cover fixed;
+      center/cover;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transform-origin: 43.5%;
@@ -103,5 +108,25 @@ img {
   padding: 0 2rem;
   text-align: center;
   line-height: 1.5;
+}
+
+.menu-item-container.dark-mode {
+  .menu-item {
+    .front,
+    .back {
+      border: 2px solid $dark-mode--color-primary;
+      background: url("../assets/images/fire-oven-background.jpg") no-repeat
+        right center/cover;
+    }
+
+    .content,
+    .back {
+      color: $dark-mode--color-primary;
+    }
+
+    .front {
+      color: $dark-mode--color-secondary;
+    }
+  }
 }
 </style>
