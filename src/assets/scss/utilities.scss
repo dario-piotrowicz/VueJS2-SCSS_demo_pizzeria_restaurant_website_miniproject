@@ -24,7 +24,7 @@
   background-color: #f4f4f4;
 
   &.dark-mode {
-    background-color: $dark-mode--neutral-background;
+    background-color: #000;
     .page-title {
       color: $dark-mode--color-primary;
     }

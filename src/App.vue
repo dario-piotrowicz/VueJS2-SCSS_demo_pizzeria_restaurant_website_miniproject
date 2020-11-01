@@ -47,7 +47,7 @@ a {
 #app-body {
   padding-top: 5rem;
   &.dark-mode {
-    background-color: $dark-mode--neutral-background;
+    background-color: #000;
   }
 }
 

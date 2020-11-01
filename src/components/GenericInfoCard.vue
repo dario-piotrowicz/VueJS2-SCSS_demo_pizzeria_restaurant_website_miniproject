@@ -39,7 +39,7 @@ export default {
   border-radius: 10px;
 
   &.dark-mode {
-    background-color: transparentize(#000, 0.1);
+    background-color: transparentize($dark-mode--neutral-background, 0.2);
     color: $dark-mode--color-primary;
     border: 1px solid transparentize($dark-mode--color-primary, 0.5);
 
