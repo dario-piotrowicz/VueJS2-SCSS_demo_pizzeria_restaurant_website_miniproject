@@ -1,5 +1,5 @@
 <template>
-  <div class="page" id="about">
+  <div id="about" class="page" :class="darkMode ? 'dark-mode' : ''">
     <div class="centering-container title-container">
       <h1 class="page-title">About</h1>
     </div>
@@ -70,6 +70,7 @@ export default {
       "lunchOpeningHours",
       "dinnerOpeningHours",
       "daysOfWeekWhenClosed",
+      "darkMode",
     ]),
   },
   components: {
@@ -79,6 +80,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/constants.scss";
+
+.dark-mode .full-width-wrapper {
+  background-color: black;
+  color: $dark-mode--color-primary;
+}
+
 .full-width-wrapper {
   background-color: #fff;
   padding: 2rem;
