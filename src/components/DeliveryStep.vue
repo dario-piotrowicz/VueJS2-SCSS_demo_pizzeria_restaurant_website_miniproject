@@ -1,5 +1,5 @@
 <template>
-  <section class="delivery-step">
+  <section class="delivery-step" :class="darkMode ? 'dark-mode' : ''">
     <div class="icon-container">
       <span class="icon"><font-awesome-icon :icon="icon" /></span>
     </div>
@@ -10,11 +10,16 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 export default {
   props: ["icon"],
   components: {
     "font-awesome-icon": FontAwesomeIcon,
+  },
+  computed: {
+    ...mapState(["darkMode"]),
   },
 };
 </script>
@@ -44,6 +49,12 @@ export default {
 
   & > .content {
     width: 20rem;
+  }
+
+  &.dark-mode > .icon-container {
+    color: $color-secondary;
+    background-color: #00000000;
+    border: 15px solid #ffc17587;
   }
 }
 </style>

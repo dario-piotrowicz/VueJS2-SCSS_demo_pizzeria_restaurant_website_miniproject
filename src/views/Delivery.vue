@@ -1,5 +1,5 @@
 <template>
-  <div class="page" id="delivery">
+  <div id="delivery" class="page" :class="darkMode ? 'dark-mode' : ''">
     <div class="centering-container">
       <h1 class="page-title">Delivery</h1>
       <p class="intro-text">To order our pizzas for delivery...</p>
@@ -51,7 +51,7 @@ export default {
     "delivery-step": DeliveryStep,
   },
   computed: {
-    ...mapState(["location", "phoneNumber"]),
+    ...mapState(["darkMode", "location", "phoneNumber"]),
   },
 };
 </script>
@@ -93,6 +93,28 @@ export default {
     margin: 3rem auto;
     background-color: $color-primary;
     border-radius: 5px;
+  }
+}
+
+#delivery.page.dark-mode {
+  .intro-text,
+  .delivery-step-content {
+    color: $dark-mode--color-secondary;
+  }
+
+  #delivery-steps-container {
+    .delivery-step-content {
+      a {
+        color: #b76f4d;
+        &:hover {
+          color: $dark-mode--color-secondary;
+        }
+      }
+    }
+
+    .delivery-steps-divider {
+      background-color: #ffc17587;
+    }
   }
 }
 </style>
