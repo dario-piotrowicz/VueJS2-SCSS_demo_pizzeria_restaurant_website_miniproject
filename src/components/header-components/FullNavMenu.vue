@@ -31,6 +31,11 @@
 import { mapState } from "vuex";
 
 export default {
+  data: function () {
+    return {
+      menuHasBeenSmaller: false,
+    };
+  },
   props: ["smaller-menu"],
   computed: {
     ...mapState(["darkMode"]),
@@ -41,10 +46,17 @@ export default {
       }
       if (this.smallerMenu) {
         resultClass += " smaller-menu";
-      } else {
+      } else if (this.menuHasBeenSmaller) {
         resultClass += " normal-menu";
       }
       return resultClass;
+    },
+  },
+  watch: {
+    smallerMenu: function (newValue) {
+      if (newValue) {
+        this.menuHasBeenSmaller = true;
+      }
     },
   },
 };
