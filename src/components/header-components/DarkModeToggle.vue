@@ -1,7 +1,9 @@
 <template>
-  <div style="display: none">
-    <input type="checkbox" v-model="darkMode" />
-    <label>Dark Mode</label>
+  <div>
+    <label>
+      <input type="checkbox" v-model="darkMode" />
+      Dark Mode</label
+    >
   </div>
 </template>
 
