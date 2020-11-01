@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import "./assets/fonts/fonts.css";
 import "./fontAwesomeSetup";
 import Header from "./components/Header";
@@ -21,7 +21,7 @@ export default {
     "app-footer": Footer,
   },
   computed: {
-    ...mapState(["darkMode"]),
+    ...mapGetters(["darkMode"]),
   },
 };
 </script>

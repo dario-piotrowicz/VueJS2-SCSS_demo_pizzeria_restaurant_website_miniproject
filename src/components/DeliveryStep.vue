@@ -1,7 +1,7 @@
 <template>
   <section class="delivery-step" :class="darkMode ? 'dark-mode' : ''">
     <div class="icon-container">
-      <span class="icon"><font-awesome-icon :icon="icon" /></span>
+      <span class="icon"><font-awesome-icon :icon="icon"/></span>
     </div>
     <div class="content">
       <slot />
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
@@ -19,7 +19,7 @@ export default {
     "font-awesome-icon": FontAwesomeIcon,
   },
   computed: {
-    ...mapState(["darkMode"]),
+    ...mapGetters(["darkMode"]),
   },
 };
 </script>

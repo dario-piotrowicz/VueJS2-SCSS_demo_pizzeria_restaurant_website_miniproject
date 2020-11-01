@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 import ContactInfo from "../components/ContactInfo";
 
 export default {
   computed: {
-    contactInfos: function () {
+    contactInfos: function() {
       return [
         {
           icon: "home",
@@ -46,7 +46,7 @@ export default {
         { icon: "at", info: this.email },
       ];
     },
-    openingTimesInfo: function () {
+    openingTimesInfo: function() {
       const standardOpeningTimes = `${this.lunchOpeningHours}, ${this.dinnerOpeningHours}`;
       return [
         "Monday",
@@ -70,8 +70,8 @@ export default {
       "lunchOpeningHours",
       "dinnerOpeningHours",
       "daysOfWeekWhenClosed",
-      "darkMode",
     ]),
+    ...mapGetters(["darkMode"]),
   },
   components: {
     "contact-info": ContactInfo,

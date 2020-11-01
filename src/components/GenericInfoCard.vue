@@ -18,12 +18,12 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   props: ["imageSrc", "title", "description", "imageOnTheRight"],
   computed: {
-    ...mapState(["darkMode"]),
+    ...mapGetters(["darkMode"]),
   },
 };
 </script>

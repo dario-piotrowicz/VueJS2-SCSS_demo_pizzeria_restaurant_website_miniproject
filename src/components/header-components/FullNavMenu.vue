@@ -28,18 +28,18 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       menuHasBeenSmaller: false,
     };
   },
   props: ["smaller-menu"],
   computed: {
-    ...mapState(["darkMode"]),
-    navMenuClass: function () {
+    ...mapGetters(["darkMode"]),
+    navMenuClass: function() {
       let resultClass = "";
       if (this.darkMode) {
         resultClass += " dark-mode";
@@ -53,7 +53,7 @@ export default {
     },
   },
   watch: {
-    smallerMenu: function (newValue) {
+    smallerMenu: function(newValue) {
       if (newValue) {
         this.menuHasBeenSmaller = true;
       }
@@ -116,5 +116,5 @@ nav {
   &.smaller-menu {
     @include smallerMenuLink();
   }
-}
-</style>>
+}</style
+>>

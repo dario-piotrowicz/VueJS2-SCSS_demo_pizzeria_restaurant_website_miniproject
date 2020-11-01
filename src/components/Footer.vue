@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       githubRepoUrl:
         "https://github.com/dario-piotrowicz/VueJS2-SCSS_demo_pizzeria_restaurant_website_miniproject",
@@ -32,7 +32,8 @@ export default {
     "font-awesome-icon": FontAwesomeIcon,
   },
   computed: {
-    ...mapState(["darkMode", "location", "phoneNumber", "email"]),
+    ...mapState(["location", "phoneNumber", "email"]),
+    ...mapGetters(["darkMode"]),
   },
   methods: {
     alertNoSocialImplemented: () => {

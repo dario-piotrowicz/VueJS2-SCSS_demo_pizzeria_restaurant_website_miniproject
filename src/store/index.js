@@ -1,9 +1,27 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import VuexPersistence from "vuex-persist";
+
 import menuData from "./menuData";
 
 Vue.use(Vuex);
+
+const darkModeModule = {
+  state: {
+    darkMode: true,
+  },
+  mutations: {
+    set_darkMode: function(state, value) {
+      state.darkMode = value;
+    },
+  },
+};
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage,
+  modules: ["darkModeModule"],
+});
 
 export default new Vuex.Store({
   state: {
@@ -14,13 +32,18 @@ export default new Vuex.Store({
     lunchOpeningHours: "11:00 - 16:00",
     dinnerOpeningHours: "19:00 - 23:30",
     daysOfWeekWhenClosed: ["tuesday"],
-    darkMode: false,
   },
   mutations: {
-    set_darkMode: function(state, value) {
-      state.darkMode = value;
+    darkMode(state) {
+      console.log({ mutation_state: state });
     },
   },
   actions: {},
-  modules: {},
+  getters: {
+    darkMode(state) {
+      return state.darkModeModule.darkMode;
+    },
+  },
+  modules: { darkModeModule },
+  plugins: [vuexLocal.plugin],
 });

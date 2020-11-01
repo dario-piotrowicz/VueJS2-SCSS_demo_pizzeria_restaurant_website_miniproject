@@ -46,19 +46,19 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   props: ["smallerMenu"],
-  data: function () {
+  data: function() {
     return {
       hamburgerMenuOpen: false,
       menuHasBeenSmaller: false,
     };
   },
   computed: {
-    ...mapState(["darkMode"]),
-    hamburgerMenuClass: function () {
+    ...mapGetters(["darkMode"]),
+    hamburgerMenuClass: function() {
       let resultClass = "";
       if (this.darkMode) {
         resultClass += " dark-mode";
@@ -72,12 +72,12 @@ export default {
     },
   },
   watch: {
-    smallerMenu: function (newValue) {
+    smallerMenu: function(newValue) {
       if (newValue) {
         this.menuHasBeenSmaller = true;
       }
     },
-    $route: function () {
+    $route: function() {
       this.hamburgerMenuOpen = false;
     },
   },

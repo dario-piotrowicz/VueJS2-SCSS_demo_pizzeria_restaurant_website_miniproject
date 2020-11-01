@@ -11,10 +11,10 @@
 export default {
   computed: {
     darkMode: {
-      get: function () {
-        return this.$store.state.darkMode;
+      get: function() {
+        return this.$store.getters.darkMode;
       },
-      set: function (value) {
+      set: function(value) {
         this.$store.commit("set_darkMode", value);
       },
     },

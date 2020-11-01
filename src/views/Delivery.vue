@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 import DeliveryStep from "../components/DeliveryStep";
 
 export default {
@@ -51,7 +51,8 @@ export default {
     "delivery-step": DeliveryStep,
   },
   computed: {
-    ...mapState(["darkMode", "location", "phoneNumber"]),
+    ...mapState(["location", "phoneNumber"]),
+    ...mapGetters(["darkMode"]),
   },
 };
 </script>

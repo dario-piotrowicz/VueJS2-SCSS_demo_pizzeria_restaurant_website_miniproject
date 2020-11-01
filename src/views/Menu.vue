@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 import MenuSection from "../components/MenuSection";
 
 export default {
@@ -21,7 +21,8 @@ export default {
     "menu-section": MenuSection,
   },
   computed: {
-    ...mapState(["darkMode", "menuSections"]),
+    ...mapState(["menuSections"]),
+    ...mapGetters(["darkMode"]),
   },
 };
 </script>

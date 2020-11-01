@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import MenuItem from "./MenuItem";
 export default {
   props: ["title", "items"],
@@ -23,7 +23,7 @@ export default {
     "menu-item": MenuItem,
   },
   computed: {
-    ...mapState(["darkMode"]),
+    ...mapGetters(["darkMode"]),
   },
 };
 </script>
