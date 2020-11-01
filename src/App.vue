@@ -50,4 +50,8 @@ a {
     background-color: $dark-mode--neutral-background;
   }
 }
+
+* {
+  transition: color 0.2s, background-color 0.5s;
+}
 </style>
