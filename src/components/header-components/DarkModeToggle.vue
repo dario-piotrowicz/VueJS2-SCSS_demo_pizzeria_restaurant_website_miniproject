@@ -29,9 +29,8 @@ export default {
   position: relative;
 
   .hidden-checkbox {
-    width: 0;
-    height: 0;
     position: absolute;
+    visibility: hidden;
   }
 
   .toggle-base {
