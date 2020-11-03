@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-header />
-    <div id="app-body" :class="darkMode ? 'dark-mode' : ''">
+    <div id="app-body" v-darkmode>
       <router-view />
     </div>
     <app-footer />

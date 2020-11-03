@@ -1,5 +1,5 @@
 <template>
-  <div id="about" class="page" :class="darkMode ? 'dark-mode' : ''">
+  <div id="about" class="page" v-darkmode>
     <div class="centering-container title-container">
       <h1 class="page-title">About</h1>
     </div>
@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState } from "vuex";
 import ContactInfo from "../components/ContactInfo";
 
 export default {
   computed: {
-    contactInfos: function() {
+    contactInfos: function () {
       return [
         {
           icon: "home",
@@ -46,7 +46,7 @@ export default {
         { icon: "at", info: this.email },
       ];
     },
-    openingTimesInfo: function() {
+    openingTimesInfo: function () {
       const standardOpeningTimes = `${this.lunchOpeningHours}, ${this.dinnerOpeningHours}`;
       return [
         "Monday",
@@ -71,7 +71,6 @@ export default {
       "dinnerOpeningHours",
       "daysOfWeekWhenClosed",
     ]),
-    ...mapGetters(["darkMode"]),
   },
   components: {
     "contact-info": ContactInfo,

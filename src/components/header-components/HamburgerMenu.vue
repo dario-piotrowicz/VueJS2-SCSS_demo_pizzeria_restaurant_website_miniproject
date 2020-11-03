@@ -50,7 +50,7 @@ import { mapGetters } from "vuex";
 
 export default {
   props: ["smallerMenu"],
-  data: function() {
+  data: function () {
     return {
       hamburgerMenuOpen: false,
       menuHasBeenSmaller: false,
@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     ...mapGetters(["darkMode"]),
-    hamburgerMenuClass: function() {
+    hamburgerMenuClass: function () {
       let resultClass = "";
       if (this.darkMode) {
         resultClass += " dark-mode";
@@ -72,12 +72,12 @@ export default {
     },
   },
   watch: {
-    smallerMenu: function(newValue) {
+    smallerMenu: function (newValue) {
       if (newValue) {
         this.menuHasBeenSmaller = true;
       }
     },
-    $route: function() {
+    $route: function () {
       this.hamburgerMenuOpen = false;
     },
   },

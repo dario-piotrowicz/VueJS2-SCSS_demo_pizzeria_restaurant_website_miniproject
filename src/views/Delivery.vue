@@ -1,5 +1,5 @@
 <template>
-  <div id="delivery" class="page" :class="darkMode ? 'dark-mode' : ''">
+  <div id="delivery" class="page" v-darkmode>
     <div class="centering-container">
       <h1 class="page-title">Delivery</h1>
       <p class="intro-text">To order our pizzas for delivery...</p>
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState } from "vuex";
 import DeliveryStep from "../components/DeliveryStep";
 
 export default {
@@ -52,7 +52,6 @@ export default {
   },
   computed: {
     ...mapState(["location", "phoneNumber"]),
-    ...mapGetters(["darkMode"]),
   },
 };
 </script>

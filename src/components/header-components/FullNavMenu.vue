@@ -1,5 +1,5 @@
 <template>
-  <nav :class="navMenuClass">
+  <nav :class="navMenuClass" v-darkmode>
     <div
       class="link"
       :class="{ 'router-link-exact-active': $route.path === '/' }"
@@ -28,22 +28,16 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
-  data: function() {
+  data: function () {
     return {
       menuHasBeenSmaller: false,
     };
   },
   props: ["smaller-menu"],
   computed: {
-    ...mapGetters(["darkMode"]),
-    navMenuClass: function() {
+    navMenuClass: function () {
       let resultClass = "";
-      if (this.darkMode) {
-        resultClass += " dark-mode";
-      }
       if (this.smallerMenu) {
         resultClass += " smaller-menu";
       } else if (this.menuHasBeenSmaller) {
@@ -53,7 +47,7 @@ export default {
     },
   },
   watch: {
-    smallerMenu: function(newValue) {
+    smallerMenu: function (newValue) {
       if (newValue) {
         this.menuHasBeenSmaller = true;
       }
@@ -116,5 +110,6 @@ nav {
   &.smaller-menu {
     @include smallerMenuLink();
   }
-}</style
+}
+</style
 >>

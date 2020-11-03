@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-item-container" :class="darkMode ? 'dark-mode' : ''">
+  <div class="menu-item-container" v-darkmode>
     <div class="menu-item">
       <div class="front">
         <h3 class="title">{{ name }}</h3>
@@ -16,13 +16,8 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   props: ["name", "imageSrc", "price", "description"],
-  computed: {
-    ...mapGetters(["darkMode"]),
-  },
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="menu" class="page" :class="darkMode ? 'dark-mode' : ''">
+  <div id="menu" class="page" v-darkmode>
     <div class="centering-container">
       <h1 class="page-title">Menu</h1>
       <menu-section
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState } from "vuex";
 import MenuSection from "../components/MenuSection";
 
 export default {
@@ -22,7 +22,6 @@ export default {
   },
   computed: {
     ...mapState(["menuSections"]),
-    ...mapGetters(["darkMode"]),
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <section class="menu-section" :class="darkMode ? 'dark-mode' : ''">
+  <section class="menu-section" v-darkmode>
     <h2 class="title">{{ title }}</h2>
     <div class="menu-items-container">
       <menu-item
@@ -15,15 +15,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import MenuItem from "./MenuItem";
 export default {
   props: ["title", "items"],
   components: {
     "menu-item": MenuItem,
-  },
-  computed: {
-    ...mapGetters(["darkMode"]),
   },
 };
 </script>

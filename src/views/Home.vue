@@ -1,12 +1,12 @@
 <template>
-  <div :class="`page${darkMode ? ' dark-mode' : ''}`" id="home">
+  <div id="home" class="page" v-darkmode>
     <hero>
       <div class="hero-content centering-container">
         <img src="../assets/images/logo.png" />
         <h2 class="heading">True Italian Taste</h2>
         <div class="decorated-orizontal-line">
           <div class="line"></div>
-          <span class="icon"><font-awesome-icon icon="pizza-slice"/></span>
+          <span class="icon"><font-awesome-icon icon="pizza-slice" /></span>
           <div class="line"></div>
         </div>
         <h2 class="opening-times">Opening Times</h2>
@@ -19,9 +19,9 @@
       <div
         v-for="(info, index) of genericInfos"
         :key="`${index}-${info.title}`"
-        :class="
-          `generic-card-container${index % 2 === 1 ? ' pizza-background' : ''}`
-        "
+        :class="`generic-card-container${
+          index % 2 === 1 ? ' pizza-background' : ''
+        }`"
       >
         <generic-info-card
           :imageSrc="info.imageSrc"
@@ -53,7 +53,7 @@ const capitalizeFirstLetter = (string) => {
 
 export default {
   name: "Home",
-  data: function() {
+  data: function () {
     return {
       genericInfos: [
         {
@@ -89,7 +89,7 @@ export default {
       "daysOfWeekWhenClosed",
     ]),
     ...mapGetters(["darkMode"]),
-    closedOnText: function() {
+    closedOnText: function () {
       if (!this.daysOfWeekWhenClosed || this.daysOfWeekWhenClosed.length === 0)
         return "Open every day";
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="dark-mode-toggle" :class="darkMode ? 'dark-mode' : ''">
+  <div id="dark-mode-toggle" v-darkmode>
     <label>
       <input class="hidden-checkbox" type="checkbox" v-model="darkMode" />
       <div class="toggle-base">
