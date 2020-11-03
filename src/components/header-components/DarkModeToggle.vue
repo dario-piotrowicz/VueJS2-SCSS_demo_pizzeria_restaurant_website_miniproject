@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div id="dark-mode-toggle" :class="darkMode ? 'dark-mode' : ''">
     <label>
-      <input type="checkbox" v-model="darkMode" />
-      Dark Mode</label
-    >
+      <input class="hidden-checkbox" type="checkbox" v-model="darkMode" />
+      <div class="toggle-base">
+        <div class="toggle-ball"></div>
+      </div>
+    </label>
   </div>
 </template>
 
@@ -11,13 +13,59 @@
 export default {
   computed: {
     darkMode: {
-      get: function() {
+      get: function () {
         return this.$store.getters.darkMode;
       },
-      set: function(value) {
+      set: function (value) {
         this.$store.commit("set_darkMode", value);
       },
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+#dark-mode-toggle {
+  position: relative;
+
+  .hidden-checkbox {
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  .toggle-base {
+    cursor: pointer;
+    width: 2rem;
+    height: 0.8rem;
+    background-color: rgb(71, 71, 71);
+    border: 1px solid #000;
+    position: relative;
+    border-radius: 10px;
+
+    .toggle-ball {
+      position: absolute;
+      top: -0.19rem;
+      left: -0.2rem;
+      width: 1.1rem;
+      height: 1.1rem;
+      background-color: #fff;
+      border: 1px solid #000;
+      border-radius: 50%;
+      transition: left 0.2s cubic-bezier(0, 0, 0, 1);
+    }
+  }
+}
+
+#dark-mode-toggle.dark-mode {
+  .toggle-base {
+    background-color: rgb(190, 190, 190);
+
+    .toggle-ball {
+      left: 1rem;
+      background-color: #000;
+      border-color: #fff;
+    }
+  }
+}
+</style>
