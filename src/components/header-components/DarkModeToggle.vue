@@ -6,6 +6,7 @@
         <div class="toggle-ball"></div>
       </div>
     </label>
+    <span class="text">Light/Dark</span>
   </div>
 </template>
 
@@ -25,8 +26,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/constants.scss";
+
 #dark-mode-toggle {
   position: relative;
+  display: flex;
+  align-items: center;
 
   .hidden-checkbox {
     position: absolute;
@@ -54,6 +59,11 @@ export default {
       transition: left 0.2s cubic-bezier(0, 0, 0, 1);
     }
   }
+
+  .text {
+    position: relative;
+    left: 0.4rem;
+  }
 }
 
 #dark-mode-toggle.dark-mode {
@@ -65,6 +75,10 @@ export default {
       background-color: #000;
       border-color: #fff;
     }
+  }
+
+  .text {
+    color: $dark-mode--color-primary;
   }
 }
 </style>
