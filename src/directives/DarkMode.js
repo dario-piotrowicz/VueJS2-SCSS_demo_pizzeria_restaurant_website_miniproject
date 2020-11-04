@@ -2,8 +2,10 @@ import Vue from "vue";
 
 const addOrRemoveDarkModeClass = (darkModeIsOn, el) => {
   const darkModeClassName = "dark-mode";
-  if (darkModeIsOn && !el.classList.contains(darkModeClassName)) {
-    el.classList.add(darkModeClassName);
+  if (darkModeIsOn) {
+    if (!el.classList.contains(darkModeClassName)) {
+      el.classList.add(darkModeClassName);
+    }
   } else {
     el.classList.remove(darkModeClassName);
   }
@@ -22,6 +24,11 @@ Vue.directive("darkmode", {
     });
   },
   inserted: function(el, _, vnode) {
+    const store = getStoreFromVnode(vnode);
+    const darkModeIsOn = store.state.darkModeModule.darkMode;
+    addOrRemoveDarkModeClass(darkModeIsOn, el);
+  },
+  update: function(el, _, vnode) {
     const store = getStoreFromVnode(vnode);
     const darkModeIsOn = store.state.darkModeModule.darkMode;
     addOrRemoveDarkModeClass(darkModeIsOn, el);
