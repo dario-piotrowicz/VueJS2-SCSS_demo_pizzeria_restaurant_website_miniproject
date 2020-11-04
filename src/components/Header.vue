@@ -1,8 +1,7 @@
 <template>
   <header id="header" :class="headerClass">
     <div class="centering-container">
-      <router-link to="/"><img src="../assets/images/logo.png"/></router-link>
-      <dark-mode-toggle />
+      <router-link to="/"><img src="../assets/images/logo.png" /></router-link>
       <div class="menus-container">
         <full-nav-menu :smallerMenu="smallerHeader"></full-nav-menu>
         <hamburger-menu :smallerMenu="smallerHeader"></hamburger-menu>
@@ -13,19 +12,17 @@
 
 <script>
 import { mapGetters } from "vuex";
-import DarkModeToggle from "./header-components/DarkModeToggle";
 import FullNavMenu from "./header-components/FullNavMenu";
 import HamburgerMenu from "./header-components/HamburgerMenu";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       smallerHeader: false,
       smallerHeaderClass: "",
     };
   },
   components: {
-    "dark-mode-toggle": DarkModeToggle,
     "full-nav-menu": FullNavMenu,
     "hamburger-menu": HamburgerMenu,
   },
@@ -49,7 +46,7 @@ export default {
   },
   computed: {
     ...mapGetters(["darkMode"]),
-    headerClass: function() {
+    headerClass: function () {
       let resultClass = this.smallerHeaderClass;
       if (this.darkMode) {
         resultClass += " dark-mode";

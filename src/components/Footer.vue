@@ -1,5 +1,8 @@
 <template>
   <footer id="footer" v-darkmode>
+    <div class="dark-mode-toggle-container">
+      <dark-mode-toggle />
+    </div>
     <img src="../assets/images/logo.png" />
     <p class="location">{{ location }}</p>
     <p class="contact">{{ phoneNumber }} | {{ email }}</p>
@@ -20,6 +23,7 @@
 <script>
 import { mapGetters, mapState } from "vuex";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import DarkModeToggle from "./DarkModeToggle";
 
 export default {
   data: function () {
@@ -30,6 +34,7 @@ export default {
   },
   components: {
     "font-awesome-icon": FontAwesomeIcon,
+    "dark-mode-toggle": DarkModeToggle,
   },
   computed: {
     ...mapState(["location", "phoneNumber", "email"]),
@@ -84,6 +89,10 @@ export default {
       }
     }
   }
+}
+
+.dark-mode-toggle-container {
+  width: 100%;
 }
 
 img {

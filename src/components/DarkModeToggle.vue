@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/scss/constants.scss";
+@import "../assets/scss/constants.scss";
 
 #dark-mode-toggle {
   position: relative;
