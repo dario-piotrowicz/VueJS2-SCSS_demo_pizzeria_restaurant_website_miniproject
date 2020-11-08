@@ -120,11 +120,15 @@ nav {
       }
     }
   }
-  &.normal-menu {
-    @include normalMenuLink();
+  &.normal-menu .link {
+    animation: normal-header-animation-full-menu-link 0.5s ease-in-out forwards;
   }
-  &.smaller-menu {
-    @include smallerMenuLink();
+
+  &.smaller-menu .link {
+    animation: smaller-header-animation-full-menu-link 0.5s ease-in-out forwards;
+    &.router-link-exact-active::after {
+      margin-top: 0;
+    }
   }
 }
 </style

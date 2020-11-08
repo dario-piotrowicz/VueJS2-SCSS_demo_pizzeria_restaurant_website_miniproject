@@ -124,55 +124,107 @@
   }
 }
 
-@mixin smaller-header-styles-link {
+@mixin smaller-header-styles-full-menu-link {
   padding: 0;
 }
 
-@mixin normal-header-styles-link {
+@mixin normal-header-styles-full-menu-link {
   padding: 1rem 0.5rem;
 }
 
-@keyframes smaller-header-animation-link {
+@keyframes smaller-header-animation-full-menu-link {
   0% {
-    @include normal-header-styles-link;
+    @include normal-header-styles-full-menu-link;
     transform: translateY(0px);
   }
   45% {
-    @include normal-header-styles-link;
+    @include normal-header-styles-full-menu-link;
     transform: translateY(-10rem);
   }
   50% {
-    @include smaller-header-styles-link;
+    @include smaller-header-styles-full-menu-link;
   }
   55% {
     transform: translateY(-10rem);
-    @include smaller-header-styles-link;
+    @include smaller-header-styles-full-menu-link;
   }
   100% {
     transform: translateY(0);
-    @include smaller-header-styles-link;
+    @include smaller-header-styles-full-menu-link;
   }
 }
 
-@keyframes normal-header-animation-link {
+@keyframes normal-header-animation-full-menu-link {
   0% {
-    @include smaller-header-styles-link;
+    @include smaller-header-styles-full-menu-link;
     transform: translateY(0px);
   }
   45% {
-    @include smaller-header-styles-link;
+    @include smaller-header-styles-full-menu-link;
     transform: translateY(-10rem);
   }
   50% {
-    @include normal-header-styles-link;
+    @include normal-header-styles-full-menu-link;
   }
   55% {
     transform: translateY(-10rem);
-    @include normal-header-styles-link;
+    @include normal-header-styles-full-menu-link;
   }
   100% {
     transform: translateY(0);
-    @include normal-header-styles-link;
+    @include normal-header-styles-full-menu-link;
+  }
+}
+
+@mixin smaller-header-styles-hamburger-menu-link {
+  padding: 0.1rem 0.7rem;
+}
+
+@mixin normal-header-styles-hamburger-menu-link {
+  padding: 1rem;
+}
+
+@keyframes smaller-header-animation-hamburger-menu-link {
+  0% {
+    @include normal-header-styles-hamburger-menu-link;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles-hamburger-menu-link;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles-hamburger-menu-link;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles-hamburger-menu-link;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles-hamburger-menu-link;
+  }
+}
+
+@keyframes normal-header-animation-hamburger-menu-link {
+  0% {
+    @include smaller-header-styles-hamburger-menu-link;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles-hamburger-menu-link;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles-hamburger-menu-link;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles-hamburger-menu-link;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles-hamburger-menu-link;
   }
 }
 

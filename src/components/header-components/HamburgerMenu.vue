@@ -99,7 +99,10 @@ export default {
 
   &.normal-menu {
     animation: normal-header-animation-hamburger 0.5s ease-in-out forwards;
-    @include normalMenuLink();
+    .link {
+      animation: normal-header-animation-hamburger-menu-link 0.5s ease-in-out
+        forwards;
+    }
   }
 
   @media (min-width: 799px) {
@@ -117,9 +120,12 @@ export default {
       margin: 2px;
     }
     .hidden-checkbox:checked ~ .smaller-nav-container {
-      height: 8.5rem;
+      height: 9.3rem;
     }
-    @include smallerMenuLink();
+    .link {
+      animation: smaller-header-animation-hamburger-menu-link 0.5s ease-in-out
+        forwards;
+    }
   }
 
   &.dark-mode {
@@ -246,7 +252,6 @@ nav {
   display: flex;
 
   .link {
-    padding: 1rem 0.5rem;
     &.router-link-exact-active {
       color: $color-secondary;
     }
