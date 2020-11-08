@@ -88,7 +88,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/scss/constants.scss";
-@import "./keyframe-animations.scss";
 
 .hamburger-menu {
   position: relative;
@@ -267,6 +266,112 @@ nav {
       background-color: transparentize(#1f0f0f, 0.9);
       color: $color-secondary;
     }
+  }
+}
+
+@mixin smaller-header-styles-hamburger-menu-link {
+  padding: 0.1rem 0.7rem;
+}
+
+@mixin normal-header-styles-hamburger-menu-link {
+  padding: 1rem;
+}
+
+@keyframes smaller-header-animation-hamburger-menu-link {
+  0% {
+    @include normal-header-styles-hamburger-menu-link;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles-hamburger-menu-link;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles-hamburger-menu-link;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles-hamburger-menu-link;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles-hamburger-menu-link;
+  }
+}
+
+@keyframes normal-header-animation-hamburger-menu-link {
+  0% {
+    @include smaller-header-styles-hamburger-menu-link;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles-hamburger-menu-link;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles-hamburger-menu-link;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles-hamburger-menu-link;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles-hamburger-menu-link;
+  }
+}
+
+@mixin smaller-header-styles-hamburger {
+  height: 30px;
+  width: 30px;
+}
+
+@mixin normal-header-styles-hamburger {
+  height: 50px;
+  width: 50px;
+}
+
+@keyframes smaller-header-animation-hamburger {
+  0% {
+    @include normal-header-styles-hamburger;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles-hamburger;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles-hamburger;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles-hamburger;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles-hamburger;
+  }
+}
+
+@keyframes normal-header-animation-hamburger {
+  0% {
+    @include smaller-header-styles-hamburger;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles-hamburger;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles-hamburger;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles-hamburger;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles-hamburger;
   }
 }
 </style>

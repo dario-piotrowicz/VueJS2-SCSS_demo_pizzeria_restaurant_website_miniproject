@@ -58,7 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/scss/constants.scss";
-@import "./keyframe-animations.scss";
 
 nav {
   display: flex;
@@ -128,6 +127,80 @@ nav {
     &.router-link-exact-active::after {
       margin-top: 0;
     }
+  }
+}
+
+@keyframes link-underline {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-5px);
+  }
+  80% {
+    transform: translateY(2px);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@mixin smaller-header-styles-full-menu-link {
+  padding: 0;
+}
+
+@mixin normal-header-styles-full-menu-link {
+  padding: 1rem 0.5rem;
+}
+
+@keyframes smaller-header-animation-full-menu-link {
+  0% {
+    @include normal-header-styles-full-menu-link;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles-full-menu-link;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles-full-menu-link;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles-full-menu-link;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles-full-menu-link;
+  }
+}
+
+@keyframes normal-header-animation-full-menu-link {
+  0% {
+    @include smaller-header-styles-full-menu-link;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles-full-menu-link;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles-full-menu-link;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles-full-menu-link;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles-full-menu-link;
   }
 }
 </style>

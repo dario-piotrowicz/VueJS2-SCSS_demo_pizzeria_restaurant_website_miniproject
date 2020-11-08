@@ -59,7 +59,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/constants.scss";
-@import "./header-components/keyframe-animations.scss";
 
 #header {
   background-color: #fff;
@@ -106,6 +105,110 @@ export default {
 
   @media (min-width: 799px) {
     flex-direction: row-reverse;
+  }
+}
+
+@mixin smaller-header-styles {
+  opacity: 0.75;
+}
+
+@mixin normal-header-styles {
+  opacity: 1;
+}
+
+@keyframes smaller-header-animation {
+  0% {
+    @include normal-header-styles;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles;
+  }
+}
+
+@keyframes normal-header-animation {
+  0% {
+    @include smaller-header-styles;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles;
+  }
+}
+
+@mixin smaller-header-styles-img {
+  width: 11rem;
+}
+
+@mixin normal-header-styles-img {
+  width: 15rem;
+}
+
+@keyframes smaller-header-animation-img {
+  0% {
+    @include normal-header-styles-img;
+    transform: translateY(0px);
+  }
+  45% {
+    @include normal-header-styles-img;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include smaller-header-styles-img;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include smaller-header-styles-img;
+  }
+  100% {
+    transform: translateY(0);
+    @include smaller-header-styles-img;
+  }
+}
+
+@keyframes normal-header-animation-img {
+  0% {
+    @include smaller-header-styles-img;
+    transform: translateY(0px);
+  }
+  45% {
+    @include smaller-header-styles-img;
+    transform: translateY(-10rem);
+  }
+  50% {
+    @include normal-header-styles-img;
+  }
+  55% {
+    transform: translateY(-10rem);
+    @include normal-header-styles-img;
+  }
+  100% {
+    transform: translateY(0);
+    @include normal-header-styles-img;
   }
 }
 </style>
