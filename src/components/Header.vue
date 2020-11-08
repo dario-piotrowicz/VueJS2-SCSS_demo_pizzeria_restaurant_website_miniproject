@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/constants.scss";
-@import "./header-components/shared-styles.scss";
+@import "./header-components/keyframe-animations.scss";
 
 #header {
   background-color: #fff;

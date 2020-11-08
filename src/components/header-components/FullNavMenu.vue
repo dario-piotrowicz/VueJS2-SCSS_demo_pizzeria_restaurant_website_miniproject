@@ -58,7 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/scss/constants.scss";
-@import "./shared-styles.scss";
 @import "./keyframe-animations.scss";
 
 nav {
@@ -131,5 +130,4 @@ nav {
     }
   }
 }
-</style
->>
+</style>
