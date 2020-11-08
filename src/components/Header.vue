@@ -97,10 +97,6 @@ export default {
   &.dark-mode {
     background-color: $dark-mode--neutral-background;
     box-shadow: 0px -6px 20px 3px $dark-mode--color-primary;
-
-    .centering-container {
-      @include darkModeLinksColors();
-    }
   }
 }
 

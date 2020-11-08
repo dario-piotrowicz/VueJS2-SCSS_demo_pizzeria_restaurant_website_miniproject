@@ -12,34 +12,36 @@
     </div>
     <div class="smaller-nav-container">
       <nav class="small">
-        <div
+        <router-link
+          to="/"
           class="link"
           :class="{ 'router-link-exact-active': $route.path === '/' }"
+          >Home</router-link
         >
-          <router-link to="/">Home</router-link>
-        </div>
-        <div
+        <router-link
           class="link"
           :class="{ 'router-link-exact-active': $route.path === '/menu' }"
+          to="/menu"
+          >Menu</router-link
         >
-          <router-link to="/menu">Menu</router-link>
-        </div>
-        <div
+        <router-link
+          to="/delivery"
           class="link"
           :class="{
             'router-link-exact-active': $route.path === '/delivery',
           }"
         >
-          <router-link to="/delivery">Delivery</router-link>
-        </div>
-        <div
+          Delivery</router-link
+        >
+        <router-link
+          to="/about"
           class="link"
           :class="{
             'router-link-exact-active': $route.path === '/about',
           }"
         >
-          <router-link to="/about">About</router-link>
-        </div>
+          About</router-link
+        >
       </nav>
     </div>
   </div>
@@ -129,7 +131,17 @@ export default {
       }
     }
 
-    @include darkModeLinksColors();
+    .link {
+      color: $dark-mode--color-primary;
+
+      &.router-link-exact-active {
+        color: $dark-mode--color-secondary;
+      }
+      &:hover {
+        color: $dark-mode--color-secondary;
+        background-color: transparentize($dark-mode--color-primary, 0.96);
+      }
+    }
 
     .hamburger-icon {
       .line {
@@ -226,11 +238,7 @@ nav.small {
   flex-direction: column;
 
   & > .link.router-link-exact-active {
-    background-color: rgba(#1f0f0f, 0.05);
-
-    &::after {
-      content: none;
-    }
+    background-color: transparentize(#1f0f0f, 0.8);
   }
 }
 
@@ -240,31 +248,19 @@ nav {
   .link {
     padding: 1rem 0.5rem;
     &.router-link-exact-active {
-      &::after {
-        content: "";
-        display: block;
-        width: 80%;
-        height: 2px;
-        margin: auto;
-        margin-top: 5px;
-        background-color: $color-secondary;
-        animation: link-underline 0.5s cubic-bezier(0, 0.8, 1, 0.85);
-      }
-      a {
-        color: $color-secondary;
-      }
+      color: $color-secondary;
     }
 
-    a {
-      color: $color-primary;
-      margin: 1rem;
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: 0.5s;
+    color: $color-primary;
+    display: block;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.5s;
 
-      &:hover {
-        color: $color-secondary;
-      }
+    &:hover {
+      background-color: transparentize(#1f0f0f, 0.9);
+      color: $color-secondary;
     }
   }
 }

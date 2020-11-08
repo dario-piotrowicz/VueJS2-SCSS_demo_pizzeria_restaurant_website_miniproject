@@ -14,23 +14,3 @@
     animation: normal-header-animation-link 0.5s ease-in-out forwards;
   }
 }
-
-@mixin darkModeLinksColors {
-  .link {
-    &.router-link-exact-active {
-      &::after {
-        background-color: $dark-mode--color-secondary;
-      }
-      a {
-        color: $dark-mode--color-secondary;
-      }
-    }
-    a {
-      color: $dark-mode--color-primary;
-
-      &:hover {
-        color: $dark-mode--color-secondary;
-      }
-    }
-  }
-}

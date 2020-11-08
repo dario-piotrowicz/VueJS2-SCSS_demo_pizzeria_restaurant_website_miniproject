@@ -102,7 +102,23 @@ nav {
   }
 
   &.dark-mode {
-    @include darkModeLinksColors();
+    .link {
+      &.router-link-exact-active {
+        &::after {
+          background-color: $dark-mode--color-secondary;
+        }
+        a {
+          color: $dark-mode--color-secondary;
+        }
+      }
+      a {
+        color: $dark-mode--color-primary;
+
+        &:hover {
+          color: $dark-mode--color-secondary;
+        }
+      }
+    }
   }
   &.normal-menu {
     @include normalMenuLink();
