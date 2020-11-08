@@ -10,8 +10,8 @@
       <div class="line" />
       <div class="line" />
     </div>
-    <div class="smaller-nav-container">
-      <nav class="small">
+    <div class="nav-container">
+      <nav>
         <router-link
           to="/"
           class="link"
@@ -118,7 +118,7 @@ export default {
       height: 3px;
       margin: 2px;
     }
-    .hidden-checkbox:checked ~ .smaller-nav-container {
+    .hidden-checkbox:checked ~ .nav-container {
       height: 9.3rem;
     }
     .link {
@@ -128,10 +128,10 @@ export default {
   }
 
   &.dark-mode {
-    .smaller-nav-container {
+    .nav-container {
       border-color: $dark-mode--color-primary;
       background-color: $dark-mode--neutral-background;
-      nav.small > .link.router-link-exact-active {
+      nav > .link.router-link-exact-active {
         background-color: transparentize($dark-mode--color-primary, 0.9);
       }
     }
@@ -178,7 +178,7 @@ export default {
   }
 }
 
-.smaller-nav-container {
+.nav-container {
   height: 0;
   border-radius: 5px;
   border: 0px solid $color-primary;
@@ -190,6 +190,7 @@ export default {
   transition: height 0.5s, border-width 0.3s;
   overflow: hidden;
 }
+
 .hidden-checkbox {
   position: absolute;
   top: 0;
@@ -202,7 +203,7 @@ export default {
   cursor: pointer;
 
   &:checked {
-    & ~ .smaller-nav-container {
+    & ~ .nav-container {
       height: 16.5rem;
       border-width: 2px;
     }
@@ -239,20 +240,14 @@ export default {
   }
 }
 
-nav.small {
-  flex-direction: column;
-
-  & > .link.router-link-exact-active {
-    background-color: transparentize(#1f0f0f, 0.8);
-  }
-}
-
 nav {
   display: flex;
+  flex-direction: column;
 
   .link {
     &.router-link-exact-active {
       color: $color-secondary;
+      background-color: transparentize(#1f0f0f, 0.8);
     }
 
     color: $color-primary;
