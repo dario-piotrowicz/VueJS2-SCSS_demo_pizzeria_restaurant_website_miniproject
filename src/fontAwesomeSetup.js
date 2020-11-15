@@ -7,6 +7,7 @@ import {
   faPhoneAlt,
   faHome,
   faAt,
+  faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -22,6 +23,7 @@ const solidIcons = [
   faPhoneAlt,
   faHome,
   faAt,
+  faExclamationTriangle,
 ];
 
 const brandIcons = [faFacebookF, faTripadvisor, faGithub];
