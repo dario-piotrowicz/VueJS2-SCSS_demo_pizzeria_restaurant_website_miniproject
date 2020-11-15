@@ -19,7 +19,8 @@ export default {
 @import "../assets/scss/constants.scss";
 
 #page-not-found {
-  height: calc(100vh - 346px);
+  height: calc(100vh - 21.68rem);
+  min-height: 15rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
