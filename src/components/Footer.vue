@@ -61,6 +61,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 2.5rem;
+  text-align: center;
 
   &.dark-mode {
     background-color: $dark-mode--neutral-background;
