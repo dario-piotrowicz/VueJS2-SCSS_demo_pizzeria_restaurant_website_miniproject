@@ -44,10 +44,14 @@ a {
   font-family: "Sriracha", cursive;
 }
 
-#app-body {
-  padding-top: 5rem;
-  &.dark-mode {
-    background-color: #000;
+#app {
+  min-width: 350px;
+
+  #app-body {
+    padding-top: 5rem;
+    &.dark-mode {
+      background-color: #000;
+    }
   }
 }
 
