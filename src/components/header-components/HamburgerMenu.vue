@@ -189,6 +189,10 @@ export default {
   margin-top: 10px;
   transition: height 0.5s, border-width 0.3s;
   overflow: hidden;
+
+  @media (max-width: 360px) {
+    right: -50%;
+  }
 }
 
 .hidden-checkbox {

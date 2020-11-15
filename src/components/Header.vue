@@ -91,6 +91,14 @@ export default {
     img {
       width: 15rem;
     }
+
+    @media (max-width: 360px) {
+      flex-direction: column;
+
+      img {
+        width: 100%;
+      }
+    }
   }
 
   &.dark-mode {
