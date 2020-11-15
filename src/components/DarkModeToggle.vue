@@ -33,6 +33,10 @@ export default {
   display: flex;
   align-items: center;
 
+  @media (max-width: 650px) {
+    margin-bottom: 2rem;
+  }
+
   .hidden-checkbox {
     position: absolute;
     visibility: hidden;

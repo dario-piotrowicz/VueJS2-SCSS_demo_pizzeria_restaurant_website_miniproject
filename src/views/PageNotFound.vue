@@ -27,6 +27,10 @@ export default {
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 650px) {
+    height: calc(100vh - 23.65rem);
+  }
+
   .icon {
     font-size: 3rem;
   }
