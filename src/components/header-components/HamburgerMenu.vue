@@ -249,11 +249,6 @@ nav {
   flex-direction: column;
 
   .link {
-    &.router-link-exact-active {
-      color: $color-secondary;
-      background-color: transparentize(#1f0f0f, 0.8);
-    }
-
     color: $color-primary;
     display: block;
     padding: 1rem;
@@ -264,6 +259,11 @@ nav {
     &:hover {
       background-color: transparentize(#1f0f0f, 0.9);
       color: $color-secondary;
+    }
+
+    &.router-link-exact-active {
+      color: $color-secondary;
+      background-color: transparentize(#1f0f0f, 0.8);
     }
   }
 }
